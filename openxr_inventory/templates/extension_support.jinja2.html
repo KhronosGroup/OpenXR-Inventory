@@ -19,6 +19,19 @@ SPDX-License-Identifier: CC-BY-4.0
     <li><a href="#matrix">Extension Support Matrix</a></li>
 {% endblock navbar_list_items %}
 
+{% block style %}
+{{ super() }}
+
+table thead tr th.runtime-name {
+    position: sticky;
+    background: white;
+    z-index: 2;
+    /* from min height of nav bar */
+    top: 50px;
+}
+
+{% endblock style %}
+
 {% block container_contents %}
     <section id="extensions">
 
@@ -100,7 +113,7 @@ SPDX-License-Identifier: CC-BY-4.0
                 <tr>
                     <th></th>
                     {% for runtime in runtimes | sort %}
-                    <th>{{ runtime.name }}</th>
+                    <th class="runtime-name">{{ runtime.name }}</th>
                     {% endfor %}
                 </tr>
             </thead>
