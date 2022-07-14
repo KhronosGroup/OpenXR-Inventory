@@ -12,7 +12,7 @@ from .runtime_inventory import ExtensionEntry, RuntimeData
 _RE_IS_KHR = re.compile(r"^XR_KHR_.*")
 _RE_IS_EXT = re.compile(r"^XR_EXT_.*")
 _RE_IS_KHX = re.compile(r"^XR_KHX_.*")
-_RE_IS_EXTX = re.compile(r"^XR_KHX_.*")
+_RE_IS_EXTX = re.compile(r"^XR_EXTX_.*")
 _RE_IS_OTHER_X = re.compile(r"^XR_([A-Z0-9]+)X_.*")
 
 
