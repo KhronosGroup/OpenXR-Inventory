@@ -24,8 +24,6 @@ SPDX-License-Identifier: CC-BY-4.0
         <!-- extension toc -->
         <div class="jumbotron row">
             <h2 id="extensions">Extensions</h2>
-            {% set break1 = (extensions | length) // 3 %}
-            {% set break2 = 2 * break1 %}
             {% for col in extensions | slice(3) %}
             <div class="col-md-4">
                 <ul class="list-unstyled">
