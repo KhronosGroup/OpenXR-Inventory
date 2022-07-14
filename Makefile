@@ -4,8 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 
 HTML_REPORT_FILES := public/extension_support.html
-SCRIPTS := $(wildcard openxr_inventory/*.py)
-RUNTIME_DATA := $(wildcard runtimes/*.json)
+SHARED_DEPS := $(wildcard openxr_inventory/*.py) \
+               $(wildcard runtimes/*.json) \
+               openxr_inventory/templates/base.jinja2.html
 
 
 all: $(HTML_REPORT_FILES)
@@ -14,5 +15,5 @@ all: $(HTML_REPORT_FILES)
 public:
 	mkdir -p $@
 
-$(HTML_REPORT_FILES): public/%.html : %_report.py openxr_inventory/templates/%.jinja2.html public $(SCRIPTS) $(RUNTIME_DATA)
+$(HTML_REPORT_FILES): public/%.html : %_report.py openxr_inventory/templates/%.jinja2.html public $(SHARED_DEPS)
 	python3 $<
