@@ -105,50 +105,36 @@ SPDX-License-Identifier: CC-BY-4.0
                 </tr>
             </thead>
             <tbody>
+
+                {% macro extension_matrix_row(extension_name) %}
+                <tr>
+                    <th class="extname">{{ extension_name }}</th>
+                    {% for runtime in runtimes | sort %}
+                        {% if extension_name in runtime_support[runtime.name] %}
+                        <td class="bg-success">Y <span class="sr-only">Supported</span></td>
+                        {% else %}
+                        <td><span class="sr-only">Not supported or not applicable</span></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endmacro %}
+
                 <tr>
                     <th>Khronos Extensions</th>
                 </tr>
                 {% for extension_name in extensions | sort if extension_name[0:6] == "XR_KHR" %}
-                <tr>
-                    <th>{{ extension_name }}</th>
-                    {% for runtime in runtimes | sort %}
-                    {% if extension_name in runtime_support[runtime.name] %}
-                    <th class="bg-success">Y</th>
-                    {% else %}
-                    <th class="bg-danger">N</th>
-                    {% endif %}
-                    {% endfor %}
-                </tr>
+                {{ extension_matrix_row(extension_name) }}
                 {% endfor %}
                 <tr>
                     <th>Multi-Vendor Extensions</th>
                 </tr>
-                {% for extension_name in extensions | sort if extension_name[0:6] == "XR_EXT" %}
-                <tr>
-                    <th>{{ extension_name }}</th>
-                    {% for runtime in runtimes | sort %}
-                    {% if extension_name in runtime_support[runtime.name] %}
-                    <th class="bg-success">Y</th>
-                    {% else %}
-                    <th class="bg-danger">N</th>
-                    {% endif %}
-                    {% endfor %}
-                </tr>
+                {% for extension_name in extensions | sort if extension_name[0:6] == "XR_EXT" %}{{ extension_matrix_row(extension_name) }}
                 {% endfor %}
                 <tr>
                     <th>Vendor Extensions</th>
                 </tr>
                 {% for extension_name in extensions | sort if extension_name[0:6] != "XR_EXT" and extension_name[0:6] != "XR_KHR" %}
-                <tr>
-                    <th>{{ extension_name }}</th>
-                    {% for runtime in runtimes | sort %}
-                    {% if extension_name in runtime_support[runtime.name] %}
-                    <th class="bg-success">Y</th>
-                    {% else %}
-                    <th class="bg-danger">N</th>
-                    {% endif %}
-                    {% endfor %}
-                </tr>
+                {{ extension_matrix_row(extension_name) }}
                 {% endfor %}
 
             </tbody>
