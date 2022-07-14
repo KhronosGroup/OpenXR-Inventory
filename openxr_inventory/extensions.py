@@ -61,6 +61,15 @@ def compute_known_extensions(runtimes: List[RuntimeData]) -> List[str]:
     return list(sorted(known_extensions, key=ext_name_key))
 
 
+def compute_runtime_support(runtimes: List[RuntimeData]) -> Dict[str, List[str]]:
+    """Compute a dictionary from runtime names to a list of supported extension names."""
+    runtime_support = {}
+    for runtime in runtimes:
+        support = [ext.name for ext in runtime.extensions]
+        runtime_support[runtime.name] = support
+    return runtime_support
+
+
 def compute_extension_support(
     runtimes: List[RuntimeData],
 ) -> Dict[str, List[Tuple[RuntimeData, ExtensionEntry]]]:
@@ -103,6 +112,7 @@ def generate_report(
     contents = template.render(
         extensions=compute_known_extensions(runtimes),
         extension_support=compute_extension_support(runtimes),
+        runtime_support=compute_runtime_support(runtimes),
         runtimes=runtimes,
     )
     if contents:
