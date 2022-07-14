@@ -8,13 +8,13 @@ on:
     branches: [main]
 
 jobs:
-  schema:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
       - name: Install dependencies
-        run: apt-get update -y && apt-get install -yy --no-install-recommends python3-jinja2
+        run: python3 -m pip install -r requirements.txt
 
       - name: Generating reports
         run: make
