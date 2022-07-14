@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2022, Collabora, Ltd.
+# SPDX-License-Identifier: CC0-1.0
+
+name: Verify schema and script compatibility
+
+on:
+  push:
+    branches: [main]
+
+  pull_request:
+    branches: [main]
+
+jobs:
+  schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: apt-get update -y && apt-get install -yy --no-install-recommends python3-jsonschema python3-jinja2
+
+      - name: Verify data files against schema
+        run: ./verify_schema.sh
+
+      - name: Try generating report
+        run: make
