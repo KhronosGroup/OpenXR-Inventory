@@ -13,10 +13,12 @@ SPDX-License-Identifier: CC-BY-4.0
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <style>
+        {% block style %}
         .row:before {
             height: 50px;
             margin-top: -50px;
         }
+        {% endblock style %}
     </style>
     <title>{% block title %}{% endblock %}</title>
 </head>
