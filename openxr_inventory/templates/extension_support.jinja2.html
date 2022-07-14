@@ -22,7 +22,7 @@ SPDX-License-Identifier: CC-BY-4.0
 {% block style %}
 {{ super() }}
 
-table thead tr th.runtime-name {
+table.table-sticky-col-headers thead tr {
     position: sticky;
     background: white;
     z-index: 2;
@@ -108,7 +108,7 @@ table thead tr th.runtime-name {
         <div id="matrix" class="jumbotron row">
             <h2>Runtime support matrix</h2>
         </div>
-        <table class="table table-bordered">
+        <table class="table table-bordered table-hover table-condensed table-sticky-col-headers">
             <thead>
                 <tr>
                     <th></th>
