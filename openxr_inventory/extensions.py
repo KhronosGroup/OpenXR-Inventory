@@ -16,24 +16,54 @@ _RE_IS_EXTX = re.compile(r"^XR_EXTX_.*")
 _RE_IS_OTHER_X = re.compile(r"^XR_([A-Z0-9]+)X_.*")
 
 
-def _categorize(ext_name: str) -> int:
+class ExtensionCategory:
+    KHR = 0
+    EXT = 1
+    VENDOR = 2
+    KHX = 3
+    EXTX = 4
+    VENDORX = 5
+
+    @classmethod
+    def all_categories(cls):
+        return (
+            cls.KHR,
+            cls.EXT,
+            cls.VENDOR,
+            cls.KHX,
+            cls.EXTX,
+            cls.VENDORX,
+        )
+
+
+def categorize_ext_name(ext_name: str) -> int:
     """Return an integer corresponding to the category/group an extension name belongs to."""
     if _RE_IS_KHR.match(ext_name):
-        return 0
+        return ExtensionCategory.KHR
     if _RE_IS_EXT.match(ext_name):
-        return 1
+        return ExtensionCategory.EXT
 
     # anything else gets a 2
-    ret = 2
+    ret = ExtensionCategory.VENDOR
 
     if _RE_IS_KHX.match(ext_name):
-        return 3
+        return ExtensionCategory.KHX
     if _RE_IS_EXTX.match(ext_name):
-        return 4
+        return ExtensionCategory.EXTX
     if _RE_IS_OTHER_X.match(ext_name):
-        return 5
+        return ExtensionCategory.VENDORX
 
     return ret
+
+
+_category_captions = {
+    ExtensionCategory.KHR: "Khronos",
+    ExtensionCategory.EXT: "Multi-Vendor",
+    ExtensionCategory.VENDOR: "Vendor",
+    ExtensionCategory.KHX: "Provisional/Experimental Khronos",
+    ExtensionCategory.EXTX: "Provisional/Experimental Multi-Vendor",
+    ExtensionCategory.VENDORX: "Provisional/Experimental Vendor",
+}
 
 
 def ext_name_key(ext_name: str):
@@ -50,7 +80,7 @@ def ext_name_key(ext_name: str):
       - EXTX
       - any other author ID ending in X
     """
-    return (_categorize(ext_name), ext_name)
+    return (categorize_ext_name(ext_name), ext_name)
 
 
 def compute_known_extensions(runtimes: List[RuntimeData]) -> List[str]:
@@ -108,6 +138,9 @@ def generate_report(
     from .inventory_jinja import make_jinja_environment
 
     env = make_jinja_environment()
+    env.globals["cat"] = ExtensionCategory
+    env.globals["cat_captions"] = _category_captions
+    env.globals["categorize_ext"] = categorize_ext_name
     template = env.get_template(template_filename)
     contents = template.render(
         extensions=compute_known_extensions(runtimes),
