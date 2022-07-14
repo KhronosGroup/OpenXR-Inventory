@@ -1,0 +1,17 @@
+{
+    "$schema": "../schema.json",
+    "name": "SteamVR",
+    "conformance_submission": 11,
+    "platform": "Windows (Desktop)",
+    "vendor": "Valve Corporation",
+    "notes": "Populated by @rpavlik from conformance report, probably incomplete.",
+    "extensions": [
+        "XR_KHR_D3D11_enable",
+        "XR_KHR_D3D12_enable",
+        "XR_KHR_opengl_enable",
+        "XR_KHR_vulkan_enable",
+        "XR_KHR_vulkan_enable2",
+        "XR_VALVE_analog_threshold",
+        "XR_EXT_dpad_binding"
+    ]
+}

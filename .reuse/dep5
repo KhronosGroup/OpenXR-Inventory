@@ -1,0 +1,4 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: OpenXR-Inventory
+Upstream-Contact: OpenXR WG <openxr-speceditor@khronos.org>
+Source: https://github.com/KhronosGroup/OpenXR-Inventory

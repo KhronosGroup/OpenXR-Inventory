@@ -1,0 +1,26 @@
+# Copyright 2022, The Khronos Group Inc.
+#
+# SPDX-License-Identifier: Apache-2.0
+stages:
+  - build
+
+reuse:
+  stage: build
+  image:
+    name: fsfe/reuse:latest
+    entrypoint: [""]
+  script:
+    - reuse lint
+
+verify_and_build:
+  image: python:latest
+  stage: build
+  before_script:
+    - python3 -m pip install -r requirements.txt
+  script:
+    - ./verify_schema.sh
+    - ./extension_support_report.py
+  artifacts:
+    paths:
+      - extension_support.html
+    expose_as: "Extension Support Report"

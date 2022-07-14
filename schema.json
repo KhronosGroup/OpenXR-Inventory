@@ -1,0 +1,194 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "definitions": {
+        "extension_name": {
+            "type": "string",
+            "description": "Name of an OpenXR extension",
+            "pattern": "^XR_([A-Z]+)(_([a-zA-Z0-9])+)+$"
+        },
+        "extension_with_details": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "allOf": [
+                        {
+                            "title": "Extension name"
+                        },
+                        {
+                            "$ref": "#/definitions/extension_name"
+                        }
+                    ]
+                },
+                "notes": {
+                    "type": "string",
+                    "title": "Notes",
+                    "description": "Free-form text about support of this extension"
+                }
+            },
+            "required": [
+                "name",
+                "notes"
+            ]
+        },
+        "extension": {
+            "allOf": [
+                {
+                    "title": "Supported Extension"
+                },
+                {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/extension_name"
+                        },
+                        {
+                            "$ref": "#/definitions/extension_with_details"
+                        }
+                    ]
+                }
+            ],
+            "examples": [
+                "XR_KHR_composition_layer_cylinder",
+                {
+                    "name": "XR_EXT_hand_tracking",
+                    "notes": "Currently in beta"
+                }
+            ]
+        },
+        "platform": {
+            "type": "string",
+            "enum": [
+                "Windows (Desktop)",
+                "Windows (HoloLens 2)",
+                "Linux (Desktop/Embedded)",
+                "Android (All-in-one)",
+                "Android (Phone/Installable)"
+            ]
+        },
+        "form_factor": {
+            "type": "string",
+            "title": "XrFormFactor",
+            "enum": [
+                "XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY",
+                "XR_FORM_FACTOR_HANDHELD_DISPLAY"
+            ]
+        },
+        "view_configuration": {
+            "type": "string",
+            "title": "XrViewConfigurationType",
+            "enum": [
+                "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_MONO",
+                "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
+                "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_QUAD_VARJO",
+                "XR_VIEW_CONFIGURATION_TYPE_SECONDARY_MONO_FIRST_PERSON_OBSERVER_MSFT"
+            ]
+        },
+        "environment_blend_mode": {
+            "type": "string",
+            "enum": [
+                "OPAQUE",
+                "ADDITIVE",
+                "ALPHA_BLEND"
+            ]
+        },
+        "view_configuration_data": {
+            "type": "object",
+            "title": "View Configuration Data",
+            "properties": {
+                "view_configuration": {
+                    "$ref": "#/definitions/view_configuration"
+                },
+                "secondary_msft": {
+                    "title": "Secondary (MSFT) view configuration?",
+                    "type": "boolean",
+                    "default": false
+                },
+                "environment_blend_modes": {
+                    "title": "Supported environment blend modes in this view configuration",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/environment_blend_mode"
+                    },
+                    "minItems": 1
+                }
+            },
+            "required": [
+                "view_configuration",
+                "environment_blend_modes"
+            ]
+        },
+        "form_factor_data": {
+            "type": "object",
+            "title": "Form Factor Data",
+            "properties": {
+                "form_factor": {
+                    "$ref": "#/definitions/form_factor"
+                },
+                "view_configurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/view_configuration_data"
+                    },
+                    "minItems": 1
+                }
+            },
+            "required": [
+                "form_factor",
+                "view_configurations"
+            ]
+        }
+    },
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "title": "Runtime Name"
+        },
+        "vendor": {
+            "type": "string",
+            "title": "Vendor"
+        },
+        "platform": {
+            "$comment": "If your runtime supports more than one platform, make multiple inventory files. This keeps the schema simpler.",
+            "$ref": "#/definitions/platform"
+        },
+        "updated": {
+            "type": "string",
+            "title": "Last updated",
+            "description": "Date this document was last reflective of the reality"
+        },
+        "conformance_submission": {
+            "type": "integer",
+            "title": "Conformance submission number",
+            "description": "See anchors at https://www.khronos.org/conformance/adopters/conformant-products/openxr"
+        },
+        "conformance_notes": {
+            "type": "string",
+            "title": "Conformance description"
+        },
+        "notes": {
+            "type": "string",
+            "title": "Notes",
+            "description": "Freeform notes about this data file"
+        },
+        "extensions": {
+            "title": "Supported extensions",
+            "description": "A list of all supported extensions in this runtime, on this platform. Details or caveats may be included in 'notes'.",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/extension"
+            }
+        },
+        "form_factors": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "#/definitions/form_factor_data"
+            }
+        }
+    },
+    "required": [
+        "name",
+        "vendor",
+        "extensions"
+    ]
+}

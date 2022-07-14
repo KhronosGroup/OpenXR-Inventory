@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<!--
+Copyright 2022, The Khronos Group Inc.
+
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Grab Bootstrap 3 to give prettier defaults, if possible. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <style>
+        .row:before {
+            height: 50px;
+            margin-top: -50px;
+        }
+    </style>
+    <title>OpenXR Runtime Extension Support Report</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header navbar-brand">OpenXR Runtime Extension Support Report</div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#extensions" aria-expanded="false">Extensions</a></li>
+                    <li><a href="#runtimes">Runtimes</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <section id="extensions">
+
+            <!-- extension toc -->
+            <div class="jumbotron row">
+                <h2 id="extensions">Extensions</h2>
+                {% set break1 = (extensions | length) // 3 %}
+                {% set break2 = 2 * break1 %}
+                {% for col in extensions | slice(3) %}
+                <div class="col-md-4">
+                    <ul class="list-unstyled">
+                    {% for extension_name in col %}
+                        <li><a href="#{{ extension_name }}">{{ extension_name }}</a></li>
+                    {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
+
+            {% for extension_name in extensions %}
+            {% set support = extension_support[extension_name] %}
+
+            <div class="row" id="{{ extension_name }}">
+                <h3>{{ extension_name }} ({{ support | length }} runtime{{ "s" if support | length != 1 }})</h3>
+                <p>
+                    <a href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#{{extension_name}}">Specification
+                        for {{ extension_name }}</a>
+                </p>
+                <ul>
+                    {% for runtime, entry in support | sort %}
+                    <li><a href="#{{ runtime.stub }}">{{ runtime.vendor }} - {{ runtime.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </section>
+
+        <section>
+            <!-- runtime toc -->
+            <div id="runtimes" class="jumbotron row">
+                <h2>Runtimes</h2>
+
+                <ul class="list-unstyled">
+                    {% for runtime in runtimes | sort %}
+                    <li><a href="#{{ runtime.stub }}">{{ runtime.vendor }} - {{ runtime.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {% for runtime in runtimes %}
+            <div class="row" id="{{ runtime.stub }}">
+                <h3>{{ runtime.name }}</h3>
+                <ul>
+                    <li>Vendor: {{ runtime.vendor }}</li>
+                    {% if runtime.conformance_submission %}
+                    <li>Most recent conformance submission: <a href="{{runtime.conformance_submission_url}}">#{{runtime.conformance_submission}}</a></li>
+                    {% endif %}
+                    {% if not runtime.conformance_submission %}
+                    <li><strong>Not a conformant runtime</strong></li>
+                    {% endif %}
+                    {% if runtime.conformance_notes %}
+                    <li>Conformance notes: {{runtime.conformance_notes}}</li>
+                    {% endif %}
+                    <li>Supported extensions:
+                        <ul>
+                            {% for extension in runtime.extensions %}
+                            <li><a href="#{{extension.name}}">{{extension.name}}</a> {% if extension.notes %} - {{ extension.notes }} {% endif %} </li>
+                            {% endfor %}
+                        </ul>
+                </ul>
+            </div>
+            {% endfor %}
+        </section>
+
+    </div> <!-- /.container -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+        crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

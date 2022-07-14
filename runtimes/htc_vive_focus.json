@@ -1,0 +1,21 @@
+{
+    "$schema": "../schema.json",
+    "name": "HTC Vive Focus 3",
+    "conformance_submission": 21,
+    "platform": "Android (All-in-one)",
+    "vendor": "HTC America, Inc.",
+    "extensions": [
+        "XR_KHR_android_create_instance",
+        "XR_KHR_composition_layer_cylinder",
+        "XR_KHR_convert_timespec_time",
+        "XR_KHR_loader_init",
+        "XR_KHR_loader_init_android",
+        "XR_KHR_opengl_es_enable",
+        "XR_KHR_visibility_mask",
+        "XR_KHR_vulkan_enable",
+        "XR_KHR_vulkan_enable2",
+        "XR_EXT_hand_tracking",
+        "XR_EXT_performance_settings",
+        "XR_HTC_vive_focus3_controller_interaction"
+    ]
+}
