@@ -1,6 +1,6 @@
 {
     "$schema": "../schema.json",
-    "name": "Windows Mixed Reality Remoting runtime",
+    "name": "Windows Mixed Reality Remoting",
     "conformance_submission": 5,
     "platform": "Windows (Desktop)",
     "vendor": "Microsoft Corporation",

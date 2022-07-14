@@ -1,6 +1,6 @@
 {
     "$schema": "../schema.json",
-    "name": "Meta Quest/Quest 2 (Mobile)",
+    "name": "Meta Quest / Quest 2 (Mobile)",
     "conformance_submission": 4,
     "platform": "Android (All-in-one)",
     "vendor": "Meta Platforms",
