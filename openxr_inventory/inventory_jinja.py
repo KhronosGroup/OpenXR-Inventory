@@ -12,4 +12,4 @@ def make_jinja_environment():
     """Returns a Jinja2 environment set up to find the templates in this module."""
     module_dir = Path(__file__).parent.resolve()
     search_paths = [str(module_dir / "templates")]
-    return Environment(loader=FileSystemLoader(search_paths))
+    return Environment(loader=FileSystemLoader(search_paths), autoescape=True)
