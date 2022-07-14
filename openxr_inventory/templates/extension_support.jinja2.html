@@ -91,7 +91,7 @@ table.table-sticky-col-headers thead tr {
                 <li><strong>Not a conformant runtime</strong></li>
                 {% endif %}
                 {% if runtime.conformance_notes %}
-                <li>Conformance notes: {{runtime.conformance_notes}}</li>
+                <li>Conformance notes: {{ runtime.conformance_notes }}</li>
                 {% endif %}
                 <li>Supported extensions:
                     <ul>
@@ -132,22 +132,20 @@ table.table-sticky-col-headers thead tr {
                 </tr>
                 {% endmacro %}
 
-                <tr>
-                    <th>Khronos Extensions</th>
-                </tr>
-                {% for extension_name in extensions | sort if extension_name[0:6] == "XR_KHR" %}
-                {{ extension_matrix_row(extension_name) }}
-                {% endfor %}
-                <tr>
-                    <th>Multi-Vendor Extensions</th>
-                </tr>
-                {% for extension_name in extensions | sort if extension_name[0:6] == "XR_EXT" %}{{ extension_matrix_row(extension_name) }}
-                {% endfor %}
-                <tr>
-                    <th>Vendor Extensions</th>
-                </tr>
-                {% for extension_name in extensions | sort if extension_name[0:6] != "XR_EXT" and extension_name[0:6] != "XR_KHR" %}
-                {{ extension_matrix_row(extension_name) }}
+                {# Loop through all categories of extension (KHR, EXT, vendor, KHX, EXTX, Vendor-X) #}
+                {% for c in cat.all_categories() %}
+                    {# Loop through all extensions in that category #}
+                    {% for extension_name in extensions if categorize_ext(extension_name) == c %}
+                        {% if loop.first %}
+                            {# this header is inside the loop so it is skipped if we have no items in this category #}
+                            {# it is inside this "if" so it only shows up once for each category. #}
+                            <tr>
+                                <th>{{ cat_captions[c] }} Extensions</th>
+                            </tr>
+                        {% endif %}
+                        {# Write out a row in the table for this extension #}
+                        {{ extension_matrix_row(extension_name) }}
+                    {% endfor %}
                 {% endfor %}
 
             </tbody>
