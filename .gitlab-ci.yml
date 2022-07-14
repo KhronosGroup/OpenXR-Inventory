@@ -22,5 +22,5 @@ verify_and_build:
     - ./extension_support_report.py
   artifacts:
     paths:
-      - extension_support.html
+      - public/extension_support.html
     expose_as: "Extension Support Report"

@@ -90,7 +90,7 @@ _FILENAME_STEM = "extension_support"
 def generate_report(
     runtimes: List[RuntimeData],
     template_filename: str = _FILENAME_STEM + ".jinja2.html",
-    out_filename: str = _FILENAME_STEM + ".html",
+    out_filename: str = "public/" + _FILENAME_STEM + ".html",
 ):
     """
     Write an HTML file in the parent directory containing information about the available extensions
