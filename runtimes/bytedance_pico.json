@@ -36,5 +36,5 @@
         "XR_FB_foveation_vulkan",
         "XR_FB_passthrough",
         "XR_FB_swapchain_update_state"
-  ]
+    ]
 }
