@@ -1,6 +1,6 @@
 {
     "$schema": "../schema.json",
-    "name": "Bytedance Pico 4 / Pico Neo3",
+    "name": "Bytedance PICO 4 / PICO Neo3",
     "conformance_submission": 25,
     "platform": "Android (All-in-one)",
     "vendor": "BYTEDANCE",
@@ -35,7 +35,5 @@
         "XR_FB_foveation_configuration",
         "XR_FB_foveation_vulkan",
         "XR_FB_passthrough",
-        "XR_FB_swapchain_update_state",
-        "XR_FB_triangle_mesh"
-    ]
+        "XR_FB_swapchain_update_state"
 }
