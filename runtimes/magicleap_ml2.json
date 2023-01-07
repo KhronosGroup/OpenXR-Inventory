@@ -1,0 +1,38 @@
+{
+    "$schema": "../schema.json",
+    "name": "Magic Leap ML2",
+    "conformance_submission": 26,
+    "form_factors": [
+        {
+            "form_factor": "XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY",
+            "view_configurations": [
+                {
+                    "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
+                    "environment_blend_modes": [
+                        "ADDITIVE",
+                        "ALPHA_BLEND"
+                    ]
+                }
+            ]
+        }
+    ],
+    "platform": "Android (All-in-one)",
+    "vendor": "Magic Leap",
+    "extensions": [
+        "XR_KHR_android_create_instance",
+        "XR_KHR_composition_layer_depth",
+        "XR_KHR_convert_timespec_time",
+        "XR_KHR_opengl_enable",
+        "XR_KHR_opengl_es_enable",
+        "XR_KHR_vulkan_enable",
+        "XR_EXT_conformance_automation",
+        "XR_EXT_eye_gaze_interaction",
+        "XR_EXT_hand_tracking",
+        "XR_EXT_view_configuration_depth_range",
+        "XR_ML_compat",
+        "XR_ML_frame_end_info",
+        "XR_ML_global_dimmer",
+        "XR_ML_ml2_controller_interaction",
+        "XR_MND_headless"
+    ]
+}
