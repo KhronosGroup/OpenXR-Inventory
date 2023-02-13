@@ -1,7 +1,7 @@
 {
-    "notes": "Generated using list_json: 'Oculus' (50.158.0) - using Quest 2",
+    "notes": "Generated using list_json: 'Oculus' (50.158.0) using Quest Pro",
     "$schema": "../schema.json",
-    "name": "Meta Quest / Quest 2 (Mobile)",
+    "name": "Meta Quest Pro (Mobile)",
     "conformance_submission": 4,
     "platform": "Android (All-in-one)",
     "vendor": "Meta Platforms",
@@ -18,6 +18,7 @@
         "XR_KHR_opengl_es_enable",
         "XR_KHR_vulkan_enable",
         "XR_KHR_vulkan_enable2",
+        "XR_EXT_eye_gaze_interaction",
         "XR_EXT_hand_tracking",
         "XR_EXT_performance_settings",
         "XR_FB_android_surface_swapchain_create",
