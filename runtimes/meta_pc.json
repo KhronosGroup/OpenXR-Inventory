@@ -22,8 +22,13 @@
         "XR_EXT_win32_appcontainer_compatible",
         "XR_FB_color_space",
         "XR_FB_display_refresh_rate",
+        "XR_FB_haptic_amplitude_envelope",
+        "XR_FB_haptic_pcm",
+        "XR_FB_touch_controller_pro",
+        "XR_FB_touch_controller_proximity",
         "XR_META_performance_metrics",
-        "XR_OCULUS_audio_device_guid"
+        "XR_OCULUS_audio_device_guid",
+        "XR_OCULUS_external_camera"
     ],
     "form_factors": [
         {
