@@ -9,19 +9,21 @@
         "XR_KHR_D3D11_enable",
         "XR_KHR_D3D12_enable",
         "XR_KHR_opengl_enable",
+        "XR_KHR_swapchain_usage_input_attachment_bit",
         "XR_KHR_visibility_mask",
+        "XR_KHR_vulkan_enable",
+        "XR_KHR_vulkan_enable2",
         "XR_KHR_win32_convert_performance_counter_time",
         "XR_EXT_debug_utils",
         "XR_EXT_eye_gaze_interaction",
         "XR_EXT_hand_tracking",
         "XR_EXT_win32_appcontainer_compatible",
-        "XR_FB_space_warp",
         "XR_VARJO_composition_layer_depth_test",
         "XR_VARJO_environment_depth_estimation",
         "XR_VARJO_foveated_rendering",
         "XR_VARJO_marker_tracking",
         "XR_VARJO_quad_views",
-        "XR_HTCX_vive_tracker_interaction",
-        "XR_MNDX_egl_enable"
+        "XR_VARJO_view_offset",
+        "XR_HTCX_vive_tracker_interaction"
     ]
 }
