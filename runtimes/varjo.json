@@ -25,5 +25,27 @@
         "XR_VARJO_quad_views",
         "XR_VARJO_view_offset",
         "XR_HTCX_vive_tracker_interaction"
+    ],
+    "form_factors": [
+        {
+            "form_factor": "XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY",
+            "view_configurations": [
+                {
+                    "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_QUAD_VARJO",
+                    "environment_blend_modes": [
+                        "OPAQUE",
+                        "ALPHA_BLEND"
+                    ]
+                },
+                {
+                    "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
+                    "environment_blend_modes": [
+                        "OPAQUE",
+                        "ALPHA_BLEND"
+                    ]
+                }
+
+            ]
+        }
     ]
 }
