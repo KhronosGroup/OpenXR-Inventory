@@ -173,7 +173,7 @@ th.rotate > div {
                     <th style="text-align:center" colspan="{{ runtimes|length + 1 }}">Runtime Features</th>
                 </tr>
 
-                {% for ff in known_form_factors %}
+                {% for ff, view_configurations in known_form_factors.items() %}
                     <tr>
                         <th class="extname">
                             {{ ff }}
@@ -189,6 +189,45 @@ th.rotate > div {
                             {% endif %}
                         {% endfor %}
                     </tr>
+
+                    {% for vc, environment_blend_modes in view_configurations.items() %}
+                    <tr>
+                        <th class="extname">
+                            &rarr; {{ vc }}
+                            <a href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#XrViewConfigurationType" alt="speficication text">
+                                <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                            </a>
+                        </th>
+
+                        {% for runtime in runtimes | sort %}
+                            {% if ff in form_factor_support[runtime.name] and vc in form_factor_support[runtime.name][ff] %}
+                            <td class="text-center bg-success"><span class="glyphicon glyphicon-ok" style="color:green" aria-hidden="true"></span><span class="sr-only">Supported</span></td>
+                            {% else %}
+                            <td class="text-center"><span class="glyphicon glyphicon-minus" style="opacity:0.1"></span><span class="sr-only">Not supported or not applicable</span></td>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% for ebm in environment_blend_modes %}
+                        <tr>
+                            <th class="extname">
+                                &rarr; &rarr; {{ ebm }}
+                                <a href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#XrEnvironmentBlendMode" alt="speficication text">
+                                    <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                                </a>
+                            </th>
+                            {% for runtime in runtimes | sort %}
+                                {% if ff in form_factor_support[runtime.name] and vc in form_factor_support[runtime.name][ff] and ebm in form_factor_support[runtime.name][ff][vc] %}
+                                <td class="text-center bg-success"><span class="glyphicon glyphicon-ok" style="color:green" aria-hidden="true"></span><span class="sr-only">Supported</span></td>
+                                {% else %}
+                                <td class="text-center"><span class="glyphicon glyphicon-minus" style="opacity:0.1"></span><span class="sr-only">Not supported or not applicable</span></td>
+                                {% endif %}
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+
+                    </tr>
+                    {% endfor %}
+
                 {% endfor %}
 
             </tbody>

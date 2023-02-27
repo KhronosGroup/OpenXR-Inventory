@@ -101,17 +101,31 @@ def compute_runtime_support(runtimes: List[RuntimeData]) -> Dict[str, List[str]]
 
 
 def compute_known_form_factors(runtimes: List[RuntimeData]) -> List[str]:
-    known_modes = set()
+    known_form_factors = {}
     for runtime in runtimes:
-        known_modes.update(ff.name for ff in runtime.form_factors)
-    return list(sorted(known_modes, key=ext_name_key))
+        for ff in runtime.form_factors:
+            for vc in ff.view_configurations:
+                known_form_factors[ff.name] = known_form_factors.get(ff.name, {})
+                for ebm in vc.environment_blend_modes:
+                    known_form_factors[ff.name][vc.name] = known_form_factors[ff.name].get(vc.name, set())
+                    known_form_factors[ff.name][vc.name].add(ebm.name)
+    return known_form_factors
 
 
 def compute_form_factor_support(runtimes: List[RuntimeData]) -> Dict[str, List[str]]:
     runtime_form_factor_support = {}
     for runtime in runtimes:
-        support = [ff.name for ff in runtime.form_factors]
-        runtime_form_factor_support[runtime.name] = support
+        if runtime.form_factors:
+            runtime_form_factor_support[runtime.name] = {}
+
+            for ff in runtime.form_factors:
+                runtime_form_factor_support[runtime.name][ff.name] = {}
+
+                for vc in ff.view_configurations:
+                    runtime_form_factor_support[runtime.name][ff.name][vc.name] = set()
+
+                    for ebm in vc.environment_blend_modes:
+                        runtime_form_factor_support[runtime.name][ff.name][vc.name].add(ebm.name)
     return runtime_form_factor_support
 
 
