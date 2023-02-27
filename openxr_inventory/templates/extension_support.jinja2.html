@@ -169,6 +169,28 @@ th.rotate > div {
                     {% endfor %}
                 {% endfor %}
 
+                <tr class="active">
+                    <th style="text-align:center" colspan="{{ runtimes|length + 1 }}">Runtime Features</th>
+                </tr>
+
+                {% for ff in known_form_factors %}
+                    <tr>
+                        <th class="extname">
+                            {{ ff }}
+                            <a href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#XrFormFactor" alt="speficication text">
+                                <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                            </a>
+                        </th>
+                        {% for runtime in runtimes | sort %}
+                            {% if ff in form_factor_support[runtime.name] %}
+                            <td class="text-center bg-success"><span class="glyphicon glyphicon-ok" style="color:green" aria-hidden="true"></span><span class="sr-only">Supported</span></td>
+                            {% else %}
+                            <td class="text-center"><span class="glyphicon glyphicon-minus" style="opacity:0.1"></span><span class="sr-only">Not supported or not applicable</span></td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+
             </tbody>
         </table>
     </section>
