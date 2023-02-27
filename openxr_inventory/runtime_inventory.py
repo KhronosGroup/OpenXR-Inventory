@@ -44,10 +44,7 @@ class FormFactorEntry:
 
     @classmethod
     def from_json(cls, d: Union[Dict, str]) -> "FormFactorEntry":
-        if d["form_factor"]:
-            return FormFactorEntry(name=d["form_factor"])
-        else:
-            return FormFactorEntry(name="OPAQUE")
+        return FormFactorEntry(name=d["form_factor"])
 
 
 @dataclass(order=True)
