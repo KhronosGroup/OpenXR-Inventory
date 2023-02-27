@@ -31,6 +31,25 @@ class ExtensionEntry:
         return ExtensionEntry(name=d["name"], notes=d.get("notes"))
 
 
+@dataclass
+class FormFactorEntry:
+    """
+    An entry in the "form_factors" array for a runtime or layer.
+
+    Corresponds to the schema reference `#/definitions/form_factor`.
+    """
+
+    name: str
+    """Form Factor name"""
+
+    @classmethod
+    def from_json(cls, d: Union[Dict, str]) -> "FormFactorEntry":
+        if d["form_factor"]:
+            return FormFactorEntry(name=d["form_factor"])
+        else:
+            return FormFactorEntry(name="OPAQUE")
+
+
 @dataclass(order=True)
 class RuntimeData:
     """Data about a single runtime on a single platform, corresponds to a single JSON file in the inventory"""
@@ -52,6 +71,9 @@ class RuntimeData:
 
     extensions: List[ExtensionEntry]
     """The supported extensions"""
+
+    form_factors: List[FormFactorEntry]
+    """The supported form factors"""
 
     def get_extension_entry(self, ext_name: str) -> Optional[ExtensionEntry]:
         """
@@ -83,6 +105,7 @@ class RuntimeData:
         'stub' should be the stem of the filename, typically.
         """
         exts = [ExtensionEntry.from_json(entry) for entry in d["extensions"]]
+        form_factors = [FormFactorEntry.from_json(entry) for entry in (d.get("form_factors", []))]
         return RuntimeData(
             stub=stub,
             name=d["name"],
@@ -90,6 +113,7 @@ class RuntimeData:
             conformance_notes=d.get("conformance_notes"),
             vendor=d["vendor"],
             extensions=exts,
+            form_factors=form_factors,
         )
 
 
@@ -115,6 +139,7 @@ def load_all_runtimes(directory=None) -> List[RuntimeData]:
             print(e)
             failures.append(str(f))
     if failures:
+        print(failures)
         raise RuntimeError(
             "Could not parse some files, probably missing required properties"
         )

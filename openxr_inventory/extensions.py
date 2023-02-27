@@ -100,6 +100,21 @@ def compute_runtime_support(runtimes: List[RuntimeData]) -> Dict[str, List[str]]
     return runtime_support
 
 
+def compute_known_form_factors(runtimes: List[RuntimeData]) -> List[str]:
+    known_modes = set()
+    for runtime in runtimes:
+        known_modes.update(ff.name for ff in runtime.form_factors)
+    return list(sorted(known_modes, key=ext_name_key))
+
+
+def compute_form_factor_support(runtimes: List[RuntimeData]) -> Dict[str, List[str]]:
+    runtime_form_factor_support = {}
+    for runtime in runtimes:
+        support = [ff.name for ff in runtime.form_factors]
+        runtime_form_factor_support[runtime.name] = support
+    return runtime_form_factor_support
+
+
 def compute_extension_support(
     runtimes: List[RuntimeData],
 ) -> Dict[str, List[Tuple[RuntimeData, ExtensionEntry]]]:
@@ -146,8 +161,11 @@ def generate_report(
         extensions=compute_known_extensions(runtimes),
         extension_support=compute_extension_support(runtimes),
         runtime_support=compute_runtime_support(runtimes),
+        known_form_factors=compute_known_form_factors(runtimes),
+        form_factor_support=compute_form_factor_support(runtimes),
         runtimes=runtimes,
     )
+
     if contents:
         out_file = Path(__file__).parent.parent / out_filename
         print("Writing {}".format(out_file))
