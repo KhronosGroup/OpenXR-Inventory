@@ -181,12 +181,9 @@ th.rotate > div {
                                 <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
                             </a>
                         </th>
+
                         {% for runtime in runtimes | sort %}
-                            {% if ff in form_factor_support[runtime.name] %}
-                            <td class="text-center bg-success"><span class="glyphicon glyphicon-ok" style="color:green" aria-hidden="true"></span><span class="sr-only">Supported</span></td>
-                            {% else %}
-                            <td class="text-center"><span class="glyphicon glyphicon-minus" style="opacity:0.1"></span><span class="sr-only">Not supported or not applicable</span></td>
-                            {% endif %}
+                            <td class="text-center"></span></td>
                         {% endfor %}
                     </tr>
 
@@ -200,11 +197,7 @@ th.rotate > div {
                         </th>
 
                         {% for runtime in runtimes | sort %}
-                            {% if ff in form_factor_support[runtime.name] and vc in form_factor_support[runtime.name][ff] %}
-                            <td class="text-center bg-success"><span class="glyphicon glyphicon-ok" style="color:green" aria-hidden="true"></span><span class="sr-only">Supported</span></td>
-                            {% else %}
-                            <td class="text-center"><span class="glyphicon glyphicon-minus" style="opacity:0.1"></span><span class="sr-only">Not supported or not applicable</span></td>
-                            {% endif %}
+                            <td class="text-center"></span></td>
                         {% endfor %}
 
                         {% for ebm in environment_blend_modes %}
