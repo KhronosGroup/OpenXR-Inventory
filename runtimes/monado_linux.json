@@ -5,8 +5,9 @@
     "platform": "Linux (Desktop/Embedded)",
     "conformance_submission": 12,
     "conformance_notes": "Only the 'Simulated Device' in Monado on Linux is officially conformant. Vendors building on Monado must follow the normal conformance process for their own devices.",
-    "notes": "Availability of some extensions is determined by availability of dependencies at compile time.",
+    "notes": "Generated using list_json: 'Monado(XRT) by Collabora et al 'v21.0.0-2877-g5380b6c14'' (21.0.0). Availability of some extensions is determined by availability of dependencies at compile time. Support for some extensions and blend modes depends on the hardware in use.",
     "extensions": [
+        "XR_KHR_binding_modification",
         "XR_KHR_composition_layer_cube",
         "XR_KHR_composition_layer_cylinder",
         "XR_KHR_composition_layer_depth",
@@ -18,15 +19,17 @@
         "XR_KHR_swapchain_usage_input_attachment_bit",
         "XR_KHR_vulkan_enable",
         "XR_KHR_vulkan_enable2",
+        "XR_EXT_dpad_binding",
         "XR_EXT_hand_tracking",
-        {
-            "name": "XR_FB_display_refresh_rate",
-            "notes": "Not useful on all drivers"
-        },
+        "XR_EXT_hp_mixed_reality_controller",
+        "XR_EXT_samsung_odyssey_controller",
+        "XR_EXTX_overlay",
+        "XR_FB_display_refresh_rate",
+        "XR_ML_ml2_controller_interaction",
         "XR_MND_headless",
         "XR_MND_swapchain_usage_input_attachment_bit",
-        "XR_EXTX_overlay",
-        "XR_MNDX_egl_enable"
+        "XR_MNDX_egl_enable",
+        "XR_MNDX_force_feedback_curl"
     ],
     "form_factors": [
         {
