@@ -18,5 +18,18 @@
         "XR_EXT_hand_tracking",
         "XR_MND_headless",
         "XR_EXTX_overlay"
+    ],
+    "form_factors": [
+        {
+            "form_factor": "XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY",
+            "view_configurations": [
+                {
+                    "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
+                    "environment_blend_modes": [
+                        "OPAQUE"
+                    ]
+                }
+            ]
+        }        
     ]
 }
