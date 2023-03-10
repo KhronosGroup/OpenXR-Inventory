@@ -23,5 +23,19 @@
         "XR_HTC_facial_tracking",
         "XR_HTC_vive_cosmos_controller_interaction",
         "XR_MSFT_scene_understanding"
-    ]
+    ],
+    "form_factors": [
+        {
+            "form_factor": "XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY",
+            "view_configurations": [
+                {
+                    "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
+                    "environment_blend_modes": [
+                        "OPAQUE",
+					    "ALPHA_BLEND"
+                    ]
+                }
+            ]
+        }
+	]
 }
