@@ -32,10 +32,10 @@
                     "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
                     "environment_blend_modes": [
                         "OPAQUE",
-					    "ALPHA_BLEND"
+                        "ALPHA_BLEND"
                     ]
                 }
             ]
         }
-	]
+    ]
 }
