@@ -30,11 +30,26 @@
         "XR_FB_composition_layer_alpha_blend",
         "XR_FB_composition_layer_image_layout",
         "XR_FB_composition_layer_secure_content",
+        "XR_FB_composition_layer_settings",
         "XR_FB_display_refresh_rate",
         "XR_FB_foveation",
         "XR_FB_foveation_configuration",
         "XR_FB_foveation_vulkan",
         "XR_FB_passthrough",
-        "XR_FB_swapchain_update_state"
+        "XR_FB_swapchain_update_state",
+        "XR_FB_triangle_mesh"
+    ],
+    "form_factors": [
+        {
+            "form_factor": "XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY",
+            "view_configurations": [
+                {
+                    "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
+                    "environment_blend_modes": [
+                        "OPAQUE"
+                    ]
+                }
+            ]
+        }
     ]
 }
