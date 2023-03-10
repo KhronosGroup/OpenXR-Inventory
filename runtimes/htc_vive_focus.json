@@ -17,12 +17,12 @@
         "XR_EXT_hand_tracking",
         "XR_EXT_performance_settings",
         "XR_HTC_vive_focus3_controller_interaction",
-		"XR_HTC_hand_interaction",
-		"XR_HTC_vive_wrist_tracker_interaction",
-		"XR_EXT_eye_gaze_interaction",
-		"XR_HTC_facial_tracking",
-		"XR_HTC_foveation",
-		"XR_HTC_passthrough"
+        "XR_HTC_hand_interaction",
+        "XR_HTC_vive_wrist_tracker_interaction",
+        "XR_EXT_eye_gaze_interaction",
+        "XR_HTC_facial_tracking",
+        "XR_HTC_foveation",
+        "XR_HTC_passthrough"
     ],
     "form_factors": [
         {
@@ -36,5 +36,5 @@
                 }
             ]
         }
-	]
+    ]
 }
