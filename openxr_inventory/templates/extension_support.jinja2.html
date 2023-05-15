@@ -48,39 +48,7 @@ th.extname {
 {% endblock style %}
 
 {% block container_contents %}
-    <section id="extensions">
 
-        <!-- extension toc -->
-        <div class="jumbotron row">
-            <h2 id="extensions">Extensions</h2>
-            {% for col in extensions | slice(3) %}
-            <div class="col-md-4">
-                <ul class="list-unstyled">
-                    {% for extension_name in col %}
-                    <li><a href="#{{ extension_name }}">{{ extension_name }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endfor %}
-        </div>
-
-        {% for extension_name in extensions %}
-        {% set support = extension_support[extension_name] %}
-
-        <div class="row">
-            <h3>{{ extension_name }} ({{ support | length }} runtime{{ "s" if support | length != 1 }})</h3>
-            <p>
-                <a href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#{{extension_name}}">Specification
-                    for {{ extension_name }}</a>
-            </p>
-            <ul>
-                {% for runtime, entry in support | sort %}
-                <li><a href="#{{ runtime.stub }}">{{ runtime.vendor }} - {{ runtime.name }}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
-        {% endfor %}
-    </section>
 
     <section>
 
