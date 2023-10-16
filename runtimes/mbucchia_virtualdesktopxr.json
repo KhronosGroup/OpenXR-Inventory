@@ -1,0 +1,51 @@
+{
+    "$schema": "../schema.json",
+    "name": "Virtual Desktop XR",
+    "vendor": "Matthieu Bucchianeri",
+    "platform": "Windows (Desktop)",
+    "notes": "Generated using list_json: 'VirtualDesktopXR' (0.7.0)",
+    "devices_notes": "This runtime uses Virtual Desktop streaming on supported devices such as Oculus Quest or Pico Neo.",
+    "extensions": [
+        "XR_KHR_composition_layer_cube",
+        "XR_KHR_composition_layer_cylinder",
+        "XR_KHR_composition_layer_depth",
+        "XR_KHR_D3D11_enable",
+        "XR_KHR_D3D12_enable",
+        "XR_KHR_opengl_enable",
+        "XR_KHR_visibility_mask",
+        "XR_KHR_vulkan_enable",
+        "XR_KHR_vulkan_enable2",
+        "XR_KHR_win32_convert_performance_counter_time",
+        {
+            "name": "XR_EXT_eye_gaze_interaction",
+            "notes": "Functional with Oculus Quest Pro only"
+        },
+        "XR_EXT_palm_pose",
+        "XR_EXT_uuid",
+        "XR_FB_display_refresh_rate",
+        {
+            "name": "XR_FB_eye_tracking_social",
+            "notes": "Functional with Oculus Quest Pro only"
+        },
+        {
+            "name": "XR_FB_face_tracking",
+            "notes": "Functional with Oculus Quest Pro only"
+        },
+        "XR_META_headset_id",
+        "XR_MND_headless",
+        "XR_OCULUS_audio_device_guid"
+    ],
+    "form_factors": [
+        {
+            "form_factor": "XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY",
+            "view_configurations": [
+                {
+                    "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
+                    "environment_blend_modes": [
+                        "OPAQUE"
+                    ]
+                }
+            ]
+        }
+    ]
+}
