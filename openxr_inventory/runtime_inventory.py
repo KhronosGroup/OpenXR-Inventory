@@ -101,6 +101,9 @@ class RuntimeData:
     conformance_notes: Optional[str]
     """Free-form text about conformance status"""
 
+    devices_notes: Optional[str]
+    """Free-form text about devices support"""
+
     vendor: str
     """The vendor's name"""
 
@@ -146,6 +149,7 @@ class RuntimeData:
             name=d["name"],
             conformance_submission=d.get("conformance_submission"),
             conformance_notes=d.get("conformance_notes"),
+            devices_notes=d.get("devices_notes"),
             vendor=d["vendor"],
             extensions=exts,
             form_factors=form_factors,
