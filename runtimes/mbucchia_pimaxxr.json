@@ -1,0 +1,37 @@
+{
+    "$schema": "../schema.json",
+    "name": "PimaxXR",
+    "vendor": "Matthieu Bucchianeri",
+    "platform": "Windows (Desktop)",
+    "notes": "Generated using list_json: 'PimaxXR (Unofficial)' (0.4.4)",
+    "extensions": [
+        "XR_KHR_composition_layer_depth",
+        "XR_KHR_D3D11_enable",
+        "XR_KHR_D3D12_enable",
+        "XR_KHR_opengl_enable",
+        "XR_KHR_visibility_mask",
+        "XR_KHR_vulkan_enable",
+        "XR_KHR_vulkan_enable2",
+        "XR_KHR_win32_convert_performance_counter_time",
+        {
+            "name": "XR_EXT_eye_gaze_interaction",
+            "notes": "Functional with Pimax Crystal or Pimax Droolon Pi1 modules"
+        },
+        "XR_EXT_hand_joints_motion_range",
+        "XR_EXT_hand_tracking",
+        "XR_FB_display_refresh_rate"
+    ],
+    "form_factors": [
+        {
+            "form_factor": "XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY",
+            "view_configurations": [
+                {
+                    "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
+                    "environment_blend_modes": [
+                        "OPAQUE"
+                    ]
+                }
+            ]
+        }
+    ]
+}
