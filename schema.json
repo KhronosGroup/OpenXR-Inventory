@@ -165,6 +165,10 @@
             "type": "string",
             "title": "Conformance description"
         },
+        "devices_notes": {
+            "type": "string",
+            "title": "Devices support notes"
+        },
         "notes": {
             "type": "string",
             "title": "Notes",

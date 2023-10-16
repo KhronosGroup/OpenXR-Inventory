@@ -104,6 +104,9 @@ th.rotate > div {
                 {% if runtime.conformance_notes %}
                 <li>Conformance notes: {{ runtime.conformance_notes }}</li>
                 {% endif %}
+                {% if runtime.devices_notes %}
+                <li>Device support: {{ runtime.devices_notes }}</li>
+                {% endif %}
                 <li>Supported extensions:
                     <ul>
                         {% for extension in runtime.extensions %}
