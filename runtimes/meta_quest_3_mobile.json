@@ -70,6 +70,17 @@
         "XR_META_vulkan_swapchain_create_info",
         "XR_MSFT_hand_interaction"
     ],
+    "preview_extensions": [
+        "XR_FB_face_tracking2",
+        "XR_META_automatic_layer_filter",
+        "XR_META_body_tracking_calibration",
+        "XR_META_body_tracking_fidelity",
+        "XR_META_body_tracking_full_body",
+        "XR_META_environment_depth",
+        "XR_META_recommended_layer_resolution",
+        "XR_META_spatial_entity_mesh",
+        "XR_META_touch_controller_plus"
+    ],
     "form_factors": [
         {
             "form_factor": "XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY",
