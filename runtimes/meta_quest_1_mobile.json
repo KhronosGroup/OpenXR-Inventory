@@ -1,0 +1,80 @@
+{
+    "notes": "Generated using list_json: 'Oculus' (50.158.0) - using Quest 2",
+    "$schema": "../schema.json",
+    "name": "Meta Quest 1 (Mobile)",
+    "conformance_submission": 4,
+    "platform": "Android (All-in-one)",
+    "vendor": "Meta Platforms",
+    "extensions": [
+        "XR_KHR_android_create_instance",
+        "XR_KHR_android_surface_swapchain",
+        "XR_KHR_android_thread_settings",
+        "XR_KHR_composition_layer_color_scale_bias",
+        "XR_KHR_composition_layer_cube",
+        "XR_KHR_composition_layer_cylinder",
+        "XR_KHR_composition_layer_depth",
+        "XR_KHR_composition_layer_equirect2",
+        "XR_KHR_convert_timespec_time",
+        "XR_KHR_opengl_es_enable",
+        "XR_KHR_vulkan_enable",
+        "XR_KHR_vulkan_enable2",
+        "XR_EXT_hand_tracking",
+        "XR_EXT_performance_settings",
+        "XR_FB_android_surface_swapchain_create",
+        "XR_FB_body_tracking",
+        "XR_FB_color_space",
+        "XR_FB_composition_layer_alpha_blend",
+        "XR_FB_composition_layer_depth_test",
+        "XR_FB_composition_layer_image_layout",
+        "XR_FB_composition_layer_secure_content",
+        "XR_FB_composition_layer_settings",
+        "XR_FB_display_refresh_rate",
+        "XR_FB_face_tracking",
+        "XR_FB_foveation",
+        "XR_FB_foveation_configuration",
+        "XR_FB_foveation_vulkan",
+        "XR_FB_hand_tracking_aim",
+        "XR_FB_hand_tracking_capsules",
+        "XR_FB_hand_tracking_mesh",
+        "XR_FB_haptic_amplitude_envelope",
+        "XR_FB_haptic_pcm",
+        "XR_FB_keyboard_tracking",
+        "XR_FB_passthrough",
+        "XR_FB_passthrough_keyboard_hands",
+        "XR_FB_render_model",
+        "XR_FB_scene",
+        "XR_FB_scene_capture",
+        "XR_FB_space_warp",
+        "XR_FB_spatial_entity",
+        "XR_FB_spatial_entity_container",
+        "XR_FB_spatial_entity_query",
+        "XR_FB_spatial_entity_sharing",
+        "XR_FB_spatial_entity_storage",
+        "XR_FB_spatial_entity_storage_batch",
+        "XR_FB_spatial_entity_user",
+        "XR_FB_swapchain_update_state",
+        "XR_FB_swapchain_update_state_android_surface",
+        "XR_FB_swapchain_update_state_opengl_es",
+        "XR_FB_swapchain_update_state_vulkan",
+        "XR_FB_touch_controller_pro",
+        "XR_FB_touch_controller_proximity",
+        "XR_FB_triangle_mesh",
+        "XR_META_headset_id",
+        "XR_META_performance_metrics",
+        "XR_META_vulkan_swapchain_create_info",
+        "XR_MSFT_hand_interaction"
+    ],
+    "form_factors": [
+        {
+            "form_factor": "XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY",
+            "view_configurations": [
+                {
+                    "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
+                    "environment_blend_modes": [
+                        "OPAQUE"
+                    ]
+                }
+            ]
+        }
+    ]
+}
