@@ -40,7 +40,10 @@
         "XR_ML_compat",
         "XR_ML_frame_end_info",
         "XR_ML_global_dimmer",
+        "XR_ML_localization_map",
+        "XR_ML_marker_understanding",
         "XR_ML_ml2_controller_interaction",
+        "XR_ML_user_calibration",
         "XR_MND_headless",
         "XR_MSFT_unbounded_reference_space"
     ]
