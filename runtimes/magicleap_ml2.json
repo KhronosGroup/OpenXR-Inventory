@@ -1,7 +1,7 @@
 {
     "$schema": "../schema.json",
     "name": "Magic Leap ML2",
-    "conformance_submission": 26,
+    "conformance_submission": 37,
     "form_factors": [
         {
             "form_factor": "XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY",
@@ -18,19 +18,21 @@
     ],
     "platform": "Android (All-in-one)",
     "vendor": "Magic Leap",
-    "updated": "November 08, 2023",
+    "updated": "April 15, 2024",
     "extensions": [
         "XR_KHR_android_create_instance",
         "XR_KHR_composition_layer_depth",
         "XR_KHR_convert_timespec_time",
         "XR_KHR_loader_init",
         "XR_KHR_loader_init_android",
+        "XR_KHR_locate_spaces",
         "XR_KHR_opengl_enable",
         "XR_KHR_opengl_es_enable",
         "XR_KHR_vulkan_enable",
         "XR_KHR_vulkan_enable2",
         "XR_EXT_conformance_automation",
         "XR_EXT_eye_gaze_interaction",
+        "XR_EXT_future",
         "XR_EXT_hand_interaction",
         "XR_EXT_hand_tracking",
         "XR_EXT_local_floor",
