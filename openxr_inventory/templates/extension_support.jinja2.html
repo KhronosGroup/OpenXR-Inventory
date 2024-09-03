@@ -6,18 +6,12 @@ SPDX-License-Identifier: CC-BY-4.0
 
 {% extends "base.jinja2.html" %}
 {% block title -%}
-    OpenXR Runtime Extension Support Report
+    OpenXR Extension Support Report
 {%- endblock title %}
 
 {% block navbar_brand_text -%}
-    OpenXR Runtime Extension Support Report
+    OpenXR Extension Support Report
 {%- endblock navbar_brand_text %}
-
-{% block navbar_list_items %}
-    <li><a href="#extensions">Extensions</a></li>
-    <li><a href="#runtimes">Runtimes</a></li>
-    <li><a href="#matrix">Extension Support Matrix</a></li>
-{% endblock navbar_list_items %}
 
 {% block style %}
 {{ super() }}
@@ -91,11 +85,42 @@ th.extname {
             </div>
         </div>
         {% endfor %}
-</section>
+
+        {% for client in clients %}
+        <div class="modal fade" id="client_{{client.stub}}_modal" tabindex="-1" role="dialog" aria-labelledby="client_{{client.stub}}_modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title">{{ client.name }}</h3>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li>Vendor: {{ client.vendor }}</li>
+                            {% if client.notes %}
+                            <li>Notes: {{ client.notes }}</li>
+                            {% endif %}
+                            <li>
+                                Supported extensions:
+                                <ul>
+                                    {% for extension in client.extensions %}
+                                    <li><a href="#{{extension.name}}">{{extension.name}}</a> {% if extension.notes %} - {{ extension.notes }} {% endif %} </li>
+                                    {% endfor %}
+                                </ul>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
 
     <section>
         <div id="matrix" class="jumbotron row">
-            <h2>Runtime support matrix</h2>
+            <h2>OpenXR adoption matrix</h2>
         </div>
         <table class="table table-hover table-condensed table-sticky-col-headers">
             <thead>
@@ -109,6 +134,15 @@ th.extname {
                         <th class="rotate" style="border:none"><div><span><abbr title="{{runtime.name}}">{{ runtime.name|truncate(34, True) }}</abbr></span><a role="button" data-toggle="modal" data-target="#runtime_{{runtime.stub}}_modal"> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></div></th>
                         {% endif %}
                     {% endfor %}
+                    <th></th>
+                    {% for client in clients | sort %}
+                        {# pragmatic check if the client name fits in the layout or if it needs to be truncated and put the full name in tooltip #}
+                        {% if client.name|length <= 34 %}
+                        <th class="rotate" style="border:none"><div><span>{{ client.name }}</span><a role="button" data-toggle="modal" data-target="#client_{{client.stub}}_modal"> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></div></th>
+                        {% else %}
+                        <th class="rotate" style="border:none"><div><span><abbr title="{{client.name}}">{{ client.name|truncate(34, True) }}</abbr></span><a role="button" data-toggle="modal" data-target="#client_{{client.stub}}_modal"> <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></div></th>
+                        {% endif %}
+                    {% endfor %}
                 </tr>
             </thead>
             <tbody>
@@ -116,13 +150,21 @@ th.extname {
                 {% set support = extension_support[extension_name] %}
                 <tr id="{{ extension_name }}">
                     <th class="extname">
-                        <span data-toggle="tooltip" title="{{ support | length }} runtimes supports this extensions">{{ extension_name }}</span>
+                        <span data-toggle="tooltip" title="{{ support.runtime_count }} runtimes and {{ support.client_count }} clients support this extensions">{{ extension_name }}</span>
                         <a href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#{{extension_name}}" alt="speficication text">
                             <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
                         </a>
                     </th>
                     {% for runtime in runtimes | sort %}
                         {% if extension_name in runtime_support[runtime.name] %}
+                        <td class="text-center bg-success"><span class="glyphicon glyphicon-ok" style="color:green" aria-hidden="true"></span><span class="sr-only">Supported</span></td>
+                        {% else %}
+                        <td class="text-center"><span class="glyphicon glyphicon-minus" style="opacity:0.1"></span><span class="sr-only">Not supported or not applicable</span></td>
+                        {% endif %}
+                    {% endfor %}
+                    <th></th>
+                    {% for client in clients | sort %}
+                        {% if extension_name in client_support[client.name] %}
                         <td class="text-center bg-success"><span class="glyphicon glyphicon-ok" style="color:green" aria-hidden="true"></span><span class="sr-only">Supported</span></td>
                         {% else %}
                         <td class="text-center"><span class="glyphicon glyphicon-minus" style="opacity:0.1"></span><span class="sr-only">Not supported or not applicable</span></td>
@@ -139,7 +181,7 @@ th.extname {
                             {# this header is inside the loop so it is skipped if we have no items in this category #}
                             {# it is inside this "if" so it only shows up once for each category. #}
                             <tr class="active">
-                                <th style="text-align:center" colspan="{{ runtimes|length + 1 }}">{{ cat_captions[c] }} Extensions</th>
+                                <th style="text-align:center" colspan="{{ runtimes|length + clients|length + 2 }}">{{ cat_captions[c] }} Extensions</th>
                             </tr>
                         {% endif %}
                         {# Write out a row in the table for this extension #}
@@ -148,7 +190,7 @@ th.extname {
                 {% endfor %}
 
                 <tr class="active">
-                    <th style="text-align:center" colspan="{{ runtimes|length + 1 }}">Runtime Features</th>
+                    <th style="text-align:center" colspan="{{ runtimes|length + clients|length + 2 }}">Runtime Features</th>
                 </tr>
 
                 {% for ff, view_configurations in known_form_factors.items() %}
@@ -161,6 +203,10 @@ th.extname {
                         </th>
 
                         {% for runtime in runtimes | sort %}
+                            <td class="text-center"></td>
+                        {% endfor %}
+                        <td class="text-center"></td>
+                        {% for client in clients | sort %}
                             <td class="text-center"></td>
                         {% endfor %}
                     </tr>
@@ -178,6 +224,12 @@ th.extname {
                             <td class="text-center"></td>
                         {% endfor %}
 
+                        <td class="text-center"></td>
+
+                        {% for client in clients | sort %}
+                        <td class="text-center"></td>
+                        {% endfor %}
+
                         {% for ebm in environment_blend_modes %}
                         <tr>
                             <th class="extname">
@@ -190,6 +242,16 @@ th.extname {
                             </th>
                             {% for runtime in runtimes | sort %}
                                 {% if ff in form_factor_support[runtime.name] and vc in form_factor_support[runtime.name][ff] and ebm in form_factor_support[runtime.name][ff][vc] %}
+                                <td class="text-center bg-success"><span class="glyphicon glyphicon-ok" style="color:green" aria-hidden="true"></span><span class="sr-only">Supported</span></td>
+                                {% else %}
+                                <td class="text-center"><span class="glyphicon glyphicon-minus" style="opacity:0.1"></span><span class="sr-only">Not supported or not applicable</span></td>
+                                {% endif %}
+                            {% endfor %}
+
+                            <td class="text-center"></td>
+
+                            {% for client in clients | sort %}
+                                {% if ff in form_factor_support[client.name] and vc in form_factor_support[client.name][ff] and ebm in form_factor_support[client.name][ff][vc] %}
                                 <td class="text-center bg-success"><span class="glyphicon glyphicon-ok" style="color:green" aria-hidden="true"></span><span class="sr-only">Supported</span></td>
                                 {% else %}
                                 <td class="text-center"><span class="glyphicon glyphicon-minus" style="opacity:0.1"></span><span class="sr-only">Not supported or not applicable</span></td>

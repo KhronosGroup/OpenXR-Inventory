@@ -12,7 +12,7 @@ from .inventory_data import ExtensionEntry, EnvironmentBlendModeEntry, ViewConfi
 
 
 @dataclass(order=True)
-class RuntimeData:
+class ClientData:
     """Data about a single runtime on a single platform, corresponds to a single JSON file in the inventory"""
 
     stub: str
@@ -20,15 +20,6 @@ class RuntimeData:
 
     name: str
     """The name of the runtime (on this platform)"""
-
-    conformance_submission: Optional[int]
-    """The conformance submission number of this runtime on this platform"""
-
-    conformance_notes: Optional[str]
-    """Free-form text about conformance status"""
-
-    devices_notes: Optional[str]
-    """Free-form text about devices support"""
 
     notes: Optional[str]
     """Free-form text with extra information"""
@@ -73,12 +64,9 @@ class RuntimeData:
         """
         exts = [ExtensionEntry.from_json(entry) for entry in d["extensions"]]
         form_factors = [FormFactorEntry.from_json(entry) for entry in (d.get("form_factors", []))]
-        return RuntimeData(
+        return ClientData(
             stub=stub,
             name=d["name"],
-            conformance_submission=d.get("conformance_submission"),
-            conformance_notes=d.get("conformance_notes"),
-            devices_notes=d.get("devices_notes"),
             notes=d.get("notes"),
             vendor=d["vendor"],
             extensions=exts,
@@ -86,10 +74,10 @@ class RuntimeData:
         )
 
 
-def load_all_runtimes(directory=None) -> List[RuntimeData]:
-    """Load all runtime inventory files."""
+def load_all_clients(directory=None) -> List[ClientData]:
+    """Load all client inventory files."""
     if not directory:
-        directory = Path(__file__).parent.parent / "runtimes"
+        directory = Path(__file__).parent.parent / "clients"
 
     failures = []
     results = []
@@ -97,7 +85,7 @@ def load_all_runtimes(directory=None) -> List[RuntimeData]:
         with open(f, "r", encoding="utf-8") as fp:
             data = json.load(fp)
         try:
-            parsed = RuntimeData.from_json(f.stem, data)
+            parsed = ClientData.from_json(f.stem, data)
             results.append(parsed)
             print("Loaded %s" % parsed.stub)
         except KeyError as e:

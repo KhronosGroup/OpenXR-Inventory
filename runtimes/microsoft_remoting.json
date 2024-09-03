@@ -1,5 +1,5 @@
 {
-    "$schema": "../schema.json",
+    "$schema": "../runtime_schema.json",
     "name": "Windows Mixed Reality Remoting",
     "conformance_submission": 5,
     "platform": "Windows (Desktop)",

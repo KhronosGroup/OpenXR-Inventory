@@ -61,7 +61,8 @@
                 "Windows (HoloLens 2)",
                 "Linux (Desktop/Embedded)",
                 "Android (All-in-one)",
-                "Android (Phone/Installable)"
+                "Android (Phone/Installable)",
+                "MacOS (Desktop)"
             ]
         },
         "form_factor": {
@@ -141,33 +142,23 @@
     "properties": {
         "name": {
             "type": "string",
-            "title": "Runtime Name"
+            "title": "Client Name"
         },
         "vendor": {
             "type": "string",
             "title": "Vendor"
         },
         "platform": {
-            "$comment": "If your runtime supports more than one platform, make multiple inventory files. This keeps the schema simpler.",
-            "$ref": "#/definitions/platform"
+            "$description": "Platforms this client supports.",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/platform"
+            }
         },
         "updated": {
             "type": "string",
             "title": "Last updated",
             "description": "Date this document was last reflective of the reality"
-        },
-        "conformance_submission": {
-            "type": "integer",
-            "title": "Conformance submission number",
-            "description": "See anchors at https://www.khronos.org/conformance/adopters/conformant-products/openxr"
-        },
-        "conformance_notes": {
-            "type": "string",
-            "title": "Conformance description"
-        },
-        "devices_notes": {
-            "type": "string",
-            "title": "Devices support notes"
         },
         "notes": {
             "type": "string",
