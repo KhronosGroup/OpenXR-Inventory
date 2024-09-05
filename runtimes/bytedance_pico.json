@@ -1,6 +1,6 @@
 {
     "$schema": "../schema.json",
-    "name": "Bytedance PICO 4 / PICO Neo3",
+    "name": "Bytedance PICO 4 / PICO 4 Ultra / PICO Neo3",
     "conformance_submission": 25,
     "platform": "Android (All-in-one)",
     "vendor": "BYTEDANCE",
@@ -37,7 +37,13 @@
         "XR_FB_foveation_vulkan",
         "XR_FB_passthrough",
         "XR_FB_swapchain_update_state",
-        "XR_FB_triangle_mesh"
+        "XR_FB_triangle_mesh",
+        "XR_FB_space_warp",
+        "XR_FB_swapchain_update_state_android_surface",
+        "XR_FB_swapchain_update_state_opengl_es",
+        "XR_FB_swapchain_update_state_vulkan",
+        "XR_META_foveation_eye_tracked",
+        "XR_META_vulkan_swapchain_create_info"
     ],
     "form_factors": [
         {
