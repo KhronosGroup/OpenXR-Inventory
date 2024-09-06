@@ -1,32 +1,45 @@
 {
     "$schema": "../schema.json",
-    "name": "Bytedance PICO 4 / PICO Neo3",
-    "conformance_submission": 25,
+    "name": "Bytedance PICO 4 Ultra",
+    "conformance_submission": 39,
     "platform": "Android (All-in-one)",
     "vendor": "BYTEDANCE",
     "extensions": [
         "XR_KHR_android_create_instance",
         "XR_KHR_android_surface_swapchain",
+        "XR_KHR_android_thread_settings",
         "XR_KHR_composition_layer_color_scale_bias",
         "XR_KHR_composition_layer_cube",
         "XR_KHR_composition_layer_cylinder",
+        "XR_KHR_composition_layer_depth",
         "XR_KHR_composition_layer_equirect",
         "XR_KHR_composition_layer_equirect2",
         "XR_KHR_convert_timespec_time",
         "XR_KHR_loader_init",
         "XR_KHR_loader_init_android",
+        "XR_KHR_maintenance1",
+        "XR_KHR_opengl_enable",
         "XR_KHR_opengl_es_enable",
         "XR_KHR_vulkan_enable",
         "XR_KHR_vulkan_enable2",
         "XR_KHR_vulkan_swapchain_format_list",
         "XR_MND_headless",
         "XR_EPIC_view_configuration_fov",
+        "XR_EXT_active_action_set_priority",
+        "XR_EXT_composition_layer_inverted_alpha",
         "XR_EXT_debug_utils",
         "XR_EXT_eye_gaze_interaction",
+        "XR_EXT_future",
+        "XR_EXT_hand_interaction",
         "XR_EXT_hand_tracking",
+        "XR_EXT_local_floor",
         "XR_EXT_view_configuration_depth_range",
+        "XR_EXT_palm_pose",
         "XR_EXT_performance_settings",
+        "XR_EXT_user_presence",
+        "XR_EXT_uuid",
         "XR_EXTX_overlay",
+        "XR_BD_controller_interaction",
         "XR_FB_composition_layer_alpha_blend",
         "XR_FB_composition_layer_image_layout",
         "XR_FB_composition_layer_secure_content",
@@ -43,7 +56,9 @@
         "XR_FB_swapchain_update_state_opengl_es",
         "XR_FB_swapchain_update_state_vulkan",
         "XR_META_foveation_eye_tracked",
-        "XR_META_vulkan_swapchain_create_info"
+        "XR_META_vulkan_swapchain_create_info",
+        "XR_MNDX_egl_enable",
+        "XR_MSFT_composition_layer_reprojection"
     ],
     "form_factors": [
         {
@@ -52,7 +67,8 @@
                 {
                     "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
                     "environment_blend_modes": [
-                        "OPAQUE"
+                        "OPAQUE",
+                        "ALPHA_BLEND"
                     ]
                 }
             ]
