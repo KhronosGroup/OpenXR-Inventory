@@ -18,6 +18,7 @@
         "XR_EXT_dpad_binding",
         "XR_EXT_hand_joints_motion_range",
         "XR_EXT_hand_tracking",
+        "XR_EXT_hand_tracking_data_source",
         "XR_EXT_hp_mixed_reality_controller",
         "XR_EXT_palm_pose",
         "XR_EXT_win32_appcontainer_compatible",
