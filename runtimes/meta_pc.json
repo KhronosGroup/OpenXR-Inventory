@@ -1,6 +1,6 @@
 {
     "notes": "Generated using list_json: 'Oculus' (1.92.0)",
-    "$schema": "../schema.json",
+    "$schema": "../runtime_schema.json",
     "name": "Meta (PC)",
     "conformance_submission": 3,
     "platform": "Windows (Desktop)",

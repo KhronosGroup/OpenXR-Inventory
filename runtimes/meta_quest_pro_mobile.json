@@ -1,6 +1,6 @@
 {
     "notes": "Generated using from OS version v60 for Quest Pro",
-    "$schema": "../schema.json",
+    "$schema": "../runtime_schema.json",
     "name": "Meta Quest Pro (Mobile)",
     "conformance_submission": 4,
     "platform": "Android (All-in-one)",

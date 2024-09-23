@@ -1,6 +1,6 @@
 {
     "notes": "Generated using list_json: 'SteamVR/OpenXR' (0.1.0)",
-    "$schema": "../schema.json",
+    "$schema": "../runtime_schema.json",
     "name": "SteamVR",
     "conformance_submission": 11,
     "platform": "Windows (Desktop)",
