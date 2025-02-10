@@ -5,7 +5,9 @@
 
 from openxr_inventory.extensions import generate_report
 from openxr_inventory.runtime_inventory import load_all_runtimes
+from openxr_inventory.client_inventory import load_all_clients
 
 if __name__ == "__main__":
     runtimes = load_all_runtimes()
-    generate_report(runtimes)
+    clients = load_all_clients()
+    generate_report(runtimes, clients)

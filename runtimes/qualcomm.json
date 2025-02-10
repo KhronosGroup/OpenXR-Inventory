@@ -1,5 +1,5 @@
 {
-    "$schema": "../schema.json",
+    "$schema": "../runtime_schema.json",
     "name": "Monado 21.0.0 / Qualcomm Retina 1.0.0 (Snapdragon 840/865/888)",
     "conformance_submission": 16,
     "vendor": "QUALCOMM",

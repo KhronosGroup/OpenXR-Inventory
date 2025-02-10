@@ -6,5 +6,10 @@ set -e
 
 for fn in runtimes/*.json; do
     echo "Checking $fn against the schema"
-    python3 -m jsonschema schema.json -i "$fn"
+    python3 -m jsonschema runtime_schema.json -i "$fn"
+done
+
+for fn in clients/*.json; do
+    echo "Checking $fn against the schema"
+    python3 -m jsonschema client_schema.json -i "$fn"
 done
