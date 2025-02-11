@@ -1,5 +1,5 @@
 {
-    "notes": "Generated using list_json: 'Oculus' (1.92.0)",
+    "notes": "Generated using list_json: 'Oculus' (1.104.0)",
     "$schema": "../schema.json",
     "name": "Meta (PC)",
     "conformance_submission": 3,
@@ -19,6 +19,7 @@
         "XR_KHR_vulkan_enable",
         "XR_KHR_vulkan_enable2",
         "XR_KHR_win32_convert_performance_counter_time",
+        "XR_EXT_active_action_set_priority",
         "XR_EXT_local_floor",
         "XR_EXT_win32_appcontainer_compatible",
         "XR_FB_color_space",
