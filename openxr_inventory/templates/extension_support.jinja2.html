@@ -66,7 +66,7 @@ th.rotate > div {
         <div class="row" id="{{ extension_name }}">
             <h3>{{ extension_name }} ({{ support | length }} runtime{{ "s" if support | length != 1 }})</h3>
             <p>
-                <a href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#{{extension_name}}">Specification
+                <a href="{{spec_url}}#{{extension_name}}">Specification
                     for {{ extension_name }}</a>
             </p>
             <ul>
@@ -142,7 +142,7 @@ th.rotate > div {
                 <tr>
                     <th class="extname">
                         {{ extension_name }}
-                        <a href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#{{extension_name}}" alt="speficication text">
+                        <a href="{{spec_url}}#{{extension_name}}" alt="speficication text">
                             <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
                         </a>
                     </th>
@@ -180,7 +180,7 @@ th.rotate > div {
                     <tr>
                         <th class="extname">
                             {{ ff }}
-                            <a href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#XrFormFactor" alt="speficication text">
+                            <a href="{{spec_url}}#XrFormFactor" alt="speficication text">
                                 <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
                             </a>
                         </th>
@@ -194,7 +194,7 @@ th.rotate > div {
                     <tr>
                         <th class="extname">
                             &rarr; {{ vc }}
-                            <a href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#XrViewConfigurationType" alt="speficication text">
+                            <a href="{{spec_url}}#XrViewConfigurationType" alt="speficication text">
                                 <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
                             </a>
                         </th>
@@ -207,7 +207,7 @@ th.rotate > div {
                         <tr>
                             <th class="extname">
                                 &rarr; &rarr; {{ ebm }}
-                                <a href="https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#XrEnvironmentBlendMode" alt="speficication text">
+                                <a href="{{spec_url}}#XrEnvironmentBlendMode" alt="speficication text">
                                     <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
                                 </a>
                             </th>

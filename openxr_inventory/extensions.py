@@ -171,6 +171,7 @@ def generate_report(
     env.globals["cat_captions"] = _category_captions
     env.globals["categorize_ext"] = categorize_ext_name
     template = env.get_template(template_filename)
+    spec_url = "https://www.khronos.org/registry/OpenXR/specs/1.1/html/xrspec.html"
     contents = template.render(
         extensions=compute_known_extensions(runtimes),
         extension_support=compute_extension_support(runtimes),
@@ -178,6 +179,7 @@ def generate_report(
         known_form_factors=compute_known_form_factors(runtimes),
         form_factor_support=compute_form_factor_support(runtimes),
         runtimes=runtimes,
+        spec_url=spec_url,
     )
 
     if contents:
