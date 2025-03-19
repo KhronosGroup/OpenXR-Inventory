@@ -1,12 +1,14 @@
 {
+    "notes": "Generated using list_json: 'Pico(XRT) by Pico et al 'c718a5049'' (3.0.1)",
     "$schema": "../schema.json",
-    "name": "Bytedance PICO 4 / PICO Neo3",
+    "name": "ByteDance PICO 4 / PICO Neo3",
     "conformance_submission": 25,
     "platform": "Android (All-in-one)",
-    "vendor": "BYTEDANCE",
+    "vendor": "ByteDance",
     "extensions": [
         "XR_KHR_android_create_instance",
         "XR_KHR_android_surface_swapchain",
+        "XR_KHR_android_thread_settings",
         "XR_KHR_composition_layer_color_scale_bias",
         "XR_KHR_composition_layer_cube",
         "XR_KHR_composition_layer_cylinder",
@@ -19,14 +21,16 @@
         "XR_KHR_vulkan_enable",
         "XR_KHR_vulkan_enable2",
         "XR_KHR_vulkan_swapchain_format_list",
-        "XR_MND_headless",
-        "XR_EPIC_view_configuration_fov",
-        "XR_EXT_debug_utils",
         "XR_EXT_eye_gaze_interaction",
+        "XR_EXT_hand_interaction",
         "XR_EXT_hand_tracking",
-        "XR_EXT_view_configuration_depth_range",
+        "XR_EXT_local_floor",
         "XR_EXT_performance_settings",
+        "XR_EXT_view_configuration_depth_range",
         "XR_EXTX_overlay",
+        "XR_BD_body_tracking",
+        "XR_BD_controller_interaction",
+        "XR_EPIC_view_configuration_fov",
         "XR_FB_composition_layer_alpha_blend",
         "XR_FB_composition_layer_image_layout",
         "XR_FB_composition_layer_secure_content",
@@ -36,14 +40,15 @@
         "XR_FB_foveation_configuration",
         "XR_FB_foveation_vulkan",
         "XR_FB_passthrough",
-        "XR_FB_swapchain_update_state",
-        "XR_FB_triangle_mesh",
         "XR_FB_space_warp",
+        "XR_FB_swapchain_update_state",
         "XR_FB_swapchain_update_state_android_surface",
         "XR_FB_swapchain_update_state_opengl_es",
         "XR_FB_swapchain_update_state_vulkan",
+        "XR_FB_triangle_mesh",
         "XR_META_foveation_eye_tracked",
-        "XR_META_vulkan_swapchain_create_info"
+        "XR_META_vulkan_swapchain_create_info",
+        "XR_MND_headless"
     ],
     "form_factors": [
         {
@@ -52,7 +57,8 @@
                 {
                     "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
                     "environment_blend_modes": [
-                        "OPAQUE"
+                        "OPAQUE",
+                        "ALPHA_BLEND"
                     ]
                 }
             ]
