@@ -14,6 +14,7 @@
         "XR_KHR_vulkan_enable",
         "XR_KHR_vulkan_enable2",
         "XR_KHR_win32_convert_performance_counter_time",
+        "XR_EXT_composition_layer_inverted_alpha",
         "XR_EXT_conformance_automation",
         "XR_EXT_debug_utils",
         "XR_EXT_hand_tracking",
@@ -44,7 +45,8 @@
                 {
                     "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
                     "environment_blend_modes": [
-                        "OPAQUE"
+                        "OPAQUE",
+                        "ALPHA_BLEND"
                     ]
                 }
             ]
