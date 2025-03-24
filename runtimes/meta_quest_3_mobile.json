@@ -91,7 +91,8 @@
                 {
                     "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
                     "environment_blend_modes": [
-                        "OPAQUE"
+                        "OPAQUE",
+                        "ALPHA_BLEND"
                     ]
                 }
             ]
