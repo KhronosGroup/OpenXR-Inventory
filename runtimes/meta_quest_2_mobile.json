@@ -1,5 +1,5 @@
 {
-    "notes": "Generated using list_json: 'Oculus' (72.945.0)",
+    "notes": "Generated using list_json: 'Oculus' (74.759.0)",
     "$schema": "../schema.json",
     "name": "Meta Quest 2 (Mobile)",
     "conformance_submission": 4,
@@ -68,7 +68,9 @@
         "XR_FB_touch_controller_pro",
         "XR_FB_touch_controller_proximity",
         "XR_FB_triangle_mesh",
+        "XR_LOGITECH_mx_ink_stylus_interaction",
         "XR_META_automatic_layer_filter",
+        "XR_META_hand_tracking_microgestures",
         "XR_META_headset_id",
         "XR_META_passthrough_color_lut",
         "XR_META_passthrough_layer_resumed_event",
@@ -90,7 +92,8 @@
                 {
                     "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
                     "environment_blend_modes": [
-                        "OPAQUE"
+                        "OPAQUE",
+                        "ALPHA_BLEND"
                     ]
                 }
             ]
