@@ -1,5 +1,5 @@
 {
-    "$schema": "../schema.json",
+    "$schema": "../runtime_schema.json",
     "name": "Varjo",
     "conformance_submission": 15,
     "platform": "Windows (Desktop)",

@@ -1,5 +1,5 @@
 {
-    "$schema": "../schema.json",
+    "$schema": "../runtime_schema.json",
     "name": "Bytedance PICO 4 / PICO Neo3",
     "conformance_submission": 25,
     "platform": "Android (All-in-one)",

@@ -1,5 +1,5 @@
 {
-    "$schema": "../schema.json",
+    "$schema": "../runtime_schema.json",
     "name": "HTC Vive Focus 3",
     "conformance_submission": 21,
     "platform": "Android (All-in-one)",

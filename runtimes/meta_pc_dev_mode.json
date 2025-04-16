@@ -1,6 +1,6 @@
 {
     "notes": "Generated using list_json: 'Oculus' (1.104.0) with Developer Only features enabled",
-    "$schema": "../schema.json",
+    "$schema": "../runtime_schema.json",
     "name": "Meta (PC) Developer Mode",
     "conformance_submission": 3,
     "platform": "Windows (Desktop)",

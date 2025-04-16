@@ -1,5 +1,5 @@
 {
-    "$schema": "../schema.json",
+    "$schema": "../runtime_schema.json",
     "name": "Magic Leap Remote Rendering",
     "conformance_submission": 27,
     "form_factors": [

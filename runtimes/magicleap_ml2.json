@@ -1,5 +1,5 @@
 {
-    "$schema": "../schema.json",
+    "$schema": "../runtime_schema.json",
     "name": "Magic Leap ML2",
     "conformance_submission": 37,
     "form_factors": [
