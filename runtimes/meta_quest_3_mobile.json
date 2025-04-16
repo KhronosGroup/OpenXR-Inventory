@@ -1,6 +1,6 @@
 {
     "notes": "Generated using list_json: 'Oculus' (72.946.0)",
-    "$schema": "../schema.json",
+    "$schema": "../runtime_schema.json",
     "name": "Meta Quest 3 (Mobile)",
     "conformance_submission": 32,
     "platform": "Android (All-in-one)",

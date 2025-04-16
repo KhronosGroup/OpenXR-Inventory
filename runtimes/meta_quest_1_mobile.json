@@ -1,6 +1,6 @@
 {
     "notes": "Generated using list_json: 'Oculus' (50.158.0) - using Quest 2",
-    "$schema": "../schema.json",
+    "$schema": "../runtime_schema.json",
     "name": "Meta Quest 1 (Mobile)",
     "conformance_submission": 2,
     "platform": "Android (All-in-one)",

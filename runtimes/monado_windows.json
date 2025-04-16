@@ -1,5 +1,5 @@
 {
-    "$schema": "../schema.json",
+    "$schema": "../runtime_schema.json",
     "name": "Monado (Windows)",
     "vendor": "Monado Community + Collabora, Ltd.",
     "platform": "Windows (Desktop)",

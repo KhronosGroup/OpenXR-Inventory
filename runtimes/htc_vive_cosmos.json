@@ -1,5 +1,5 @@
 {
-    "$schema": "../schema.json",
+    "$schema": "../runtime_schema.json",
     "name": "HTC Vive Cosmos",
     "conformance_submission": 13,
     "platform": "Windows (Desktop)",

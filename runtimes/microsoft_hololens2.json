@@ -1,5 +1,5 @@
 {
-    "$schema": "../schema.json",
+    "$schema": "../runtime_schema.json",
     "name": "Windows Mixed Reality - HoloLens 2",
     "conformance_submission": 1,
     "platform": "Windows (HoloLens 2)",
