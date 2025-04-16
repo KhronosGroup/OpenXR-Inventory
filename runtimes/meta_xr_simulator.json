@@ -1,6 +1,6 @@
 {
     "notes": "Generated using list_json: 'Meta' (1.59.0) - simulates Quest 3",
-    "$schema": "../schema.json",
+    "$schema": "../runtime_schema.json",
     "name": "Meta XR Simulator",
     "conformance_submission": 30,
     "platform": "Windows (Desktop)",

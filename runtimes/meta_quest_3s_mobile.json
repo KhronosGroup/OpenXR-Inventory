@@ -1,6 +1,6 @@
 {
     "notes": "Generated using list_json: 'Oculus' (71.0.0)",
-    "$schema": "../schema.json",
+    "$schema": "../runtime_schema.json",
     "name": "Meta Quest 3S (Mobile)",
     "platform": "Android (All-in-one)",
     "vendor": "Meta Platforms",
