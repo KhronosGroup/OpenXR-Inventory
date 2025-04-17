@@ -128,6 +128,7 @@ th.rotate > div {
                         <li><a href="#{{extension.name}}">{{extension.name}}</a> {% if extension.notes %} - {{ extension.notes }} {% endif %} </li>
                         {% endfor %}
                     </ul>
+                </li>
             </ul>
         </div>
         {% endfor %}
@@ -265,12 +266,15 @@ th.rotate > div {
                 {% if client.notes %}
                 <li>Notes: {{ client.notes }}</li>
                 {% endif %}
-                <li>Supported extensions:
+                {% for component in client.components %}
+                <li>Component: {{ component.name }}<br>Extensions:
                     <ul>
-                        {% for extension in client.extensions %}
+                        {% for extension in component.extensions %}
                         <li><a href="#{{extension.name}}">{{extension.name}}</a> {% if extension.notes %} - {{ extension.notes }} {% endif %} </li>
                         {% endfor %}
                     </ul>
+                </li>
+                {% endfor %}
             </ul>
         </div>
         {% endfor %}
@@ -305,8 +309,9 @@ th.rotate > div {
                         </a>
                     </th>
                     {% for client in clients | sort %}
-                        {% if extension_name in client_support[client.name] %}
-                        <td class="text-center bg-success"><span class="glyphicon glyphicon-ok" style="color:green" aria-hidden="true"></span><span class="sr-only">Supported</span></td>
+                        {% set component = client.get_component_for_extension(extension_name) %}
+                        {% if component %}
+                        <td class="text-center bg-success" style="background-color:{{ component.color }}"><span><abbr title="{{component.name}}">{{ component.abbreviation }}</abbr></span></td>
                         {% else %}
                         <td class="text-center"><span class="glyphicon glyphicon-minus" style="opacity:0.1"></span><span class="sr-only">Not supported or not applicable</span></td>
                         {% endif %}

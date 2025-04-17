@@ -10,16 +10,42 @@ from typing import Dict, List, Optional, Union
 
 from .inventory_data import ExtensionEntry, EnvironmentBlendModeEntry, ViewConfigurationEntry, FormFactorEntry
 
+@dataclass
+class ComponentEntry:
+    """Data about component of a client"""
+
+    name: str
+    """The name of the component"""
+
+    abbreviation: str
+    """The abbreviation to use in the client matrix"""
+
+    color: str
+    """The color to use in the client matrix"""
+
+    extensions: List[ExtensionEntry]
+    """The supported extensions"""
+
+    @classmethod
+    def from_json(self, d: Dict) -> "ComponentEntry":
+        exts = [ExtensionEntry.from_json(entry) for entry in d["extensions"]]
+        return ComponentEntry(
+            name=d["name"],
+            abbreviation=d["abbreviation"],
+            color=d["color"],
+            extensions=exts
+        )
+
 
 @dataclass(order=True)
 class ClientData:
-    """Data about a single runtime on a single platform, corresponds to a single JSON file in the inventory"""
+    """Data about a single client, corresponds to a single JSON file in the inventory"""
 
     stub: str
     """A short identifier suitable for use as an HTML anchor, file name stem, etc."""
 
     name: str
-    """The name of the runtime (on this platform)"""
+    """The name of the client"""
 
     notes: Optional[str]
     """Free-form text with extra information"""
@@ -27,11 +53,19 @@ class ClientData:
     vendor: str
     """The vendor's name"""
 
-    extensions: List[ExtensionEntry]
-    """The supported extensions"""
+    components: List[ComponentEntry]
+    """The components"""
 
     form_factors: List[FormFactorEntry]
     """The supported form factors"""
+
+    def get_component_for_extension(self, ext_name: str) -> Optional[ComponentEntry]:
+        for component in self.components:
+            for entry in component.extensions:
+                if entry.name == ext_name:
+                    return component
+        
+        return None
 
     def get_extension_entry(self, ext_name: str) -> Optional[ExtensionEntry]:
         """
@@ -39,9 +73,10 @@ class ClientData:
 
         This can tell you if the runtime supports that extension, as well as any notes from the inventory.
         """
-        extension_entries = [
-            entry for entry in self.extensions if entry.name == ext_name
-        ]
+        extension_entries = []
+
+        for component in self.components:
+            extension_entries += [ entry for entry in component.extensions if entry.name == ext_name ]
 
         if not extension_entries:
             return
@@ -56,20 +91,20 @@ class ClientData:
             )
 
     @classmethod
-    def from_json(cls, stub: str, d: Dict) -> "RuntimeData":
+    def from_json(cls, stub: str, d: Dict) -> "ClientData":
         """
         Create an object from the data loaded from a json file.
 
         'stub' should be the stem of the filename, typically.
         """
-        exts = [ExtensionEntry.from_json(entry) for entry in d["extensions"]]
+        comps = [ComponentEntry.from_json(entry) for entry in d["components"]]
         form_factors = [FormFactorEntry.from_json(entry) for entry in (d.get("form_factors", []))]
         return ClientData(
             stub=stub,
             name=d["name"],
             notes=d.get("notes"),
             vendor=d["vendor"],
-            extensions=exts,
+            components=comps,
             form_factors=form_factors,
         )
 

@@ -91,6 +91,56 @@
                 "ALPHA_BLEND"
             ]
         },
+        "component": {
+            "type": "object",
+            "title": "Component",
+            "properties": {
+                "name": {
+                    "title": "Name of this component",
+                    "type": "string"
+                },
+                "abbreviation": {
+                    "title": "Abbreviation shown in matrix",
+                    "type": "string"
+                },
+                "color": {
+                    "title": "Background color used in matrix",
+                    "type": "string",
+                    "enum": [
+                        "black",
+                        "white",
+                        "gray",
+                        "silver",
+                        "maroon",
+                        "red",
+                        "purple",
+                        "fushsia",
+                        "green",
+                        "lime",
+                        "olive",
+                        "yellow",
+                        "navy",
+                        "blue",
+                        "teal",
+                        "aqua"
+                    ]
+                },
+                "extensions": {
+                    "title": "Supported extensions",
+                    "description": "A list of all supported extensions in this client, on this platform. Details or caveats may be included in 'notes'.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/extension"
+                    }
+                }        
+            },
+            "required": [
+                "name",
+                "abbreviation",
+                "color",
+                "extensions"
+            ]
+        },
         "view_configuration_data": {
             "type": "object",
             "title": "View Configuration Data",
@@ -165,12 +215,12 @@
             "title": "Notes",
             "description": "Freeform notes about this data file"
         },
-        "extensions": {
-            "title": "Supported extensions",
-            "description": "A list of all supported extensions in this runtime, on this platform. Details or caveats may be included in 'notes'.",
+        "components": {
+            "title": "Components",
+            "description": "A list of all components for this client.",
             "type": "array",
             "items": {
-                "$ref": "#/definitions/extension"
+                "$ref": "#/definitions/component"
             }
         },
         "form_factors": {
@@ -184,6 +234,6 @@
     "required": [
         "name",
         "vendor",
-        "extensions"
+        "components"
     ]
 }

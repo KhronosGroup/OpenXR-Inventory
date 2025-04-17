@@ -93,7 +93,8 @@ def compute_known_extensions(runtimes: List[RuntimeData], clients: List[ClientDa
         known_extensions.update(ext.name for ext in runtime.extensions)
 
     for client in clients:
-        known_extensions.update(ext.name for ext in client.extensions)
+        for component in client.components:
+            known_extensions.update(ext.name for ext in component.extensions)
 
     return list(sorted(known_extensions, key=ext_name_key))
 
@@ -110,7 +111,9 @@ def compute_client_support(clients: List[ClientData]) -> Dict[str, List[str]]:
     """Compute a dictionary from client names to a list of supported extension names."""
     client_support = {}
     for client in clients:
-        support = [ext.name for ext in client.extensions]
+        support = []
+        for component in client.components:
+            support += [ext.name for ext in component.extensions]
         client_support[client.name] = support
     return client_support
 
