@@ -55,7 +55,8 @@
                 "XR_HTCX_vive_tracker_interaction",
                 "XR_ML_ml2_controller_interaction",
                 "XR_MSFT_hand_interaction",
-                "XR_MNDX_egl_enable"
+                "XR_MNDX_egl_enable",
+                "XR_VALVE_analog_threshold"
             ]
         },
         {
@@ -63,7 +64,10 @@
             "abbreviation": "Vendors",
             "extensions": [
                 "XR_FB_body_tracking",
+                "XR_FB_color_space",
                 "XR_FB_composition_layer_alpha_blend",
+                "XR_FB_composition_layer_depth_test",
+                "XR_FB_composition_layer_image_layout",
                 "XR_FB_composition_layer_secure_content",
                 "XR_FB_composition_layer_settings",
                 "XR_FB_display_refresh_rate",
@@ -74,8 +78,11 @@
                 "XR_FB_hand_tracking_capsules",
                 "XR_FB_hand_tracking_mesh",
                 "XR_FB_passthrough",
+                "XR_FB_space_warp",
+                "XR_META_environment_depth",
                 "XR_META_passthrough_preferences",
                 "XR_META_passthrough_color_lut",
+                "XR_META_recommended_layer_resolution",
                 "XR_META_spatial_entity_mesh",
                 "XR_FB_render_model",
                 "XR_FB_scene",
