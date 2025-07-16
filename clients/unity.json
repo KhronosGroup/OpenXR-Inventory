@@ -20,6 +20,7 @@
                 "XR_KHR_D3D11_enable",
                 "XR_KHR_D3D12_enable",
                 "XR_KHR_loader_init",
+                "XR_KHR_loader_init_android",
                 "XR_KHR_opengl_es_enable",
                 "XR_KHR_visibility_mask",
                 "XR_KHR_vulkan_enable",
