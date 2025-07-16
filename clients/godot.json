@@ -15,6 +15,7 @@
             "name": "Godot Core",
             "abbreviation": "Core",
             "extensions": [
+                "XR_KHR_D3D12_enable",
                 "XR_KHR_android_create_instance",
                 "XR_KHR_android_surface_swapchain",
                 "XR_KHR_binding_modification",
@@ -35,12 +36,15 @@
                 "XR_EXT_hand_tracking",
                 "XR_EXT_hand_joints_motion_range",
                 "XR_EXT_hand_tracking_data_source",
+                "XR_EXT_hp_mixed_reality_controller",
+                "XR_EXT_interaction_render_model",
                 "XR_EXT_local_floor",
                 "XR_EXT_view_configuration_depth_range",
                 "XR_EXT_palm_pose",
                 "XR_EXT_performance_settings",
-                "XR_EXT_hp_mixed_reality_controller",
+                "XR_EXT_render_model",
                 "XR_EXT_samsung_odyssey_controller",
+                "XR_EXT_uuid",
                 "XR_BD_controller_interaction",
                 "XR_FB_touch_controller_proximity",
                 "XR_FB_touch_controller_pro",
@@ -50,7 +54,8 @@
                 "XR_HTC_hand_interaction",
                 "XR_HTCX_vive_tracker_interaction",
                 "XR_ML_ml2_controller_interaction",
-                "XR_MSFT_hand_interaction"
+                "XR_MSFT_hand_interaction",
+                "XR_MNDX_egl_enable"
             ]
         },
         {

@@ -201,7 +201,8 @@ def compute_extension_support(
 
         # Get all the client support
         for client in clients:
-            client_count += len(client.get_extension_entry(extension_name))
+            if len(client.get_extension_entry(extension_name)) > 0:
+                client_count += 1
 
         # Filter out the empty ones
         extension_support[extension_name] = ExtensionSupport(runtime_count, client_count)
