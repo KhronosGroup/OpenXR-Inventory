@@ -8,13 +8,12 @@
         "Linux (Desktop/Embedded)",
         "Android (All-in-one)",
         "Android (Phone/Installable)",
-        "MacOS (Desktop)"
+        "macOS (Desktop)"
     ],
     "components": [
         {
             "name": "Godot Core",
             "abbreviation": "Core",
-            "color": "green",
             "extensions": [
                 "XR_KHR_android_create_instance",
                 "XR_KHR_android_surface_swapchain",
@@ -57,7 +56,6 @@
         {
             "name": "Godot Vendors plugin",
             "abbreviation": "Vendors",
-            "color": "yellow",
             "extensions": [
                 "XR_FB_body_tracking",
                 "XR_FB_composition_layer_alpha_blend",

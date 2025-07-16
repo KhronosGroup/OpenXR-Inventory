@@ -309,9 +309,16 @@ th.rotate > div {
                         </a>
                     </th>
                     {% for client in clients | sort %}
-                        {% set component = client.get_component_for_extension(extension_name) %}
-                        {% if component %}
-                        <td class="text-center bg-success" style="background-color:{{ component.color }}"><span><abbr title="{{component.name}}">{{ component.abbreviation }}</abbr></span></td>
+                        {% set components = client.get_component_for_extension(extension_name) %}
+                        {% if components|length > 0 %}
+                        <td class="text-center bg-success">
+                            {% for component in components %}
+                            <span><abbr title="{{component.name}}">{{ component.abbreviation }}</abbr></span>
+                            {% if not loop.last %}
+                            <br>
+                            {% endif %}
+                            {% endfor %}
+                        </td>
                         {% else %}
                         <td class="text-center"><span class="glyphicon glyphicon-minus" style="opacity:0.1"></span><span class="sr-only">Not supported or not applicable</span></td>
                         {% endif %}

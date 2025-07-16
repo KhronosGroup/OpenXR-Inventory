@@ -15,7 +15,7 @@
             "extensions": [
                 "XR_KHR_android_create_instance",
                 "XR_KHR_android_surface_swapchain",
-                "XR_KHR_android_thread_settings"
+                "XR_KHR_android_thread_settings",
                 "XR_KHR_composition_layer_depth",
                 "XR_KHR_D3D11_enable",
                 "XR_KHR_D3D12_enable",
