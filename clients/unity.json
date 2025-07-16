@@ -43,7 +43,6 @@
                 "XR_EXT_hp_mixed_reality_controller",
                 "XR_EXT_local_floor",
                 "XR_EXT_palm_pose",
-                "XR_VARJO_quad_views",
                 "XR_KHR_binding_modification",
                 "XR_EXT_conformance_automation",
                 "XR_EXT_dpad_binding",
