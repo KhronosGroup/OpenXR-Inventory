@@ -1,0 +1,115 @@
+{
+    "$schema": "../client_schema.json",
+    "name": "Unity",
+    "vendor": "Unity Technologies",
+    "platforms": [
+        "Windows (Desktop)",
+        "Windows Subsystem for Android (WSA)",
+        "Android (All-in-one)",
+        "macOS (Desktop)"
+    ],
+    "components": [
+        {
+            "name": "OpenXR Plug-in",
+            "abbreviation": "OpenXR Plug-in",
+            "extensions": [
+                "XR_KHR_android_create_instance",
+                "XR_KHR_android_surface_swapchain",
+                "XR_KHR_android_thread_settings"
+                "XR_KHR_composition_layer_depth",
+                "XR_KHR_D3D11_enable",
+                "XR_KHR_D3D12_enable",
+                "XR_KHR_loader_init",
+                "XR_KHR_opengl_es_enable",
+                "XR_KHR_visibility_mask",
+                "XR_KHR_vulkan_enable",
+                "XR_KHR_vulkan_enable2",
+                "XR_EXT_performance_settings",
+                "XR_EXT_user_presence",
+                "XR_FB_foveation",
+                "XR_FB_foveation_configuration",
+                "XR_FB_foveation_vulkan",
+                "XR_FB_space_warp",
+                "XR_FB_swapchain_update_state",
+                "XR_META_foveation_eye_tracked",
+                "XR_META_performance_metrics",
+                "XR_META_vulkan_swapchain_create_info",
+                "XR_MSFT_first_person_observer",
+                "XR_MSFT_holographic_window_attachment",
+                "XR_MSFT_secondary_view_configuration",
+                "XR_OCULUS_audio_device_guid",
+                "XR_KHR_maintenance1",
+                "XR_EXT_hp_mixed_reality_controller",
+                "XR_EXT_local_floor",
+                "XR_EXT_palm_pose",
+                "XR_VARJO_quad_views",
+                "XR_KHR_binding_modification",
+                "XR_EXT_conformance_automation",
+                "XR_EXT_dpad_binding",
+                "XR_EXT_eye_gaze_interaction",
+                "XR_EXT_hand_interaction",
+                "XR_FB_touch_controller_pro",
+                "XR_META_touch_controller_plus",
+                "XR_MSFT_unbounded_reference_space"
+            ]
+        },
+        {
+            "name": "XR Composition Layers",
+            "abbreviation": "Comp Layers",
+            "extensions": [
+                "XR_KHR_composition_layer_color_scale_bias",
+                "XR_KHR_composition_layer_cube",
+                "XR_KHR_composition_layer_cylinder",
+                "XR_KHR_composition_layer_equirect",
+                "XR_KHR_composition_layer_equirect2"
+            ]
+        },
+        {
+            "name": "Unity OpenXR: Meta",
+            "abbreviation": "Meta",
+            "extensions": [
+                "XR_FB_display_refresh_rate",
+                "XR_FB_passthrough",
+                "XR_FB_scene",
+                "XR_FB_scene_capture",
+                "XR_FB_spatial_entity",
+                "XR_FB_spatial_entity_container",
+                "XR_FB_spatial_entity_query",
+                "XR_META_colocation_discovery",
+                "XR_META_spatial_entity_group_sharing",
+                "XR_META_spatial_entity_mesh",
+                "XR_META_spatial_entity_sharing"
+            ]
+        },
+        {
+            "name": "Unity OpenXR: Android XR",
+            "abbreviation": "Android XR",
+            "extensions": [
+                "XR_FB_display_refresh_rate"
+            ]
+        },
+        {
+            "name": "XR Hands",
+            "abbreviation": "Hands",
+            "extensions": [
+                "XR_EXT_hand_tracking",
+                "XR_FB_hand_tracking_aim"
+            ]
+        }
+    ],
+    "form_factors": [
+        {
+            "form_factor": "XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY",
+            "view_configurations": [
+                {
+                    "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
+                    "environment_blend_modes": [
+                        "OPAQUE",
+                        "ADDITIVE",
+                        "ALPHA_BLEND"
+                    ]
+                }
+            ]
+        }
+    ]
+}
