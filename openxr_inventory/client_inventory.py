@@ -20,9 +20,6 @@ class ComponentEntry:
     abbreviation: str
     """The abbreviation to use in the client matrix"""
 
-    color: str
-    """The color to use in the client matrix"""
-
     extensions: List[ExtensionEntry]
     """The supported extensions"""
 
@@ -32,7 +29,6 @@ class ComponentEntry:
         return ComponentEntry(
             name=d["name"],
             abbreviation=d["abbreviation"],
-            color=d["color"],
             extensions=exts
         )
 
@@ -59,29 +55,27 @@ class ClientData:
     form_factors: List[FormFactorEntry]
     """The supported form factors"""
 
-    def get_component_for_extension(self, ext_name: str) -> Optional[ComponentEntry]:
+    def get_component_for_extension(self, ext_name: str) -> List[ComponentEntry]:
+        component_entries = []
         for component in self.components:
             for entry in component.extensions:
                 if entry.name == ext_name:
-                    return component
+                    component_entries += [ component ]
         
-        return None
+        return component_entries
 
-    def get_extension_entry(self, ext_name: str) -> Optional[ExtensionEntry]:
+    def get_extension_entry(self, ext_name: str) -> List[ExtensionEntry]:
         """
-        Get the entry for the named extension, if it exists.
+        Get the entries for the named extension, if they exists.
 
-        This can tell you if the runtime supports that extension, as well as any notes from the inventory.
+        This can tell you if the client supports that extension, as well as any notes from the inventory.
         """
         extension_entries = []
 
         for component in self.components:
             extension_entries += [ entry for entry in component.extensions if entry.name == ext_name ]
 
-        if not extension_entries:
-            return
-        assert len(extension_entries) == 1
-        return extension_entries[0]
+        return extension_entries
 
     @property
     def conformance_submission_url(self) -> Optional[str]:

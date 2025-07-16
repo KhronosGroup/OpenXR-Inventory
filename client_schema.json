@@ -103,28 +103,6 @@
                     "title": "Abbreviation shown in matrix",
                     "type": "string"
                 },
-                "color": {
-                    "title": "Background color used in matrix",
-                    "type": "string",
-                    "enum": [
-                        "black",
-                        "white",
-                        "gray",
-                        "silver",
-                        "maroon",
-                        "red",
-                        "purple",
-                        "fushsia",
-                        "green",
-                        "lime",
-                        "olive",
-                        "yellow",
-                        "navy",
-                        "blue",
-                        "teal",
-                        "aqua"
-                    ]
-                },
                 "extensions": {
                     "title": "Supported extensions",
                     "description": "A list of all supported extensions in this client, on this platform. Details or caveats may be included in 'notes'.",
@@ -137,7 +115,6 @@
             "required": [
                 "name",
                 "abbreviation",
-                "color",
                 "extensions"
             ]
         },
