@@ -1,0 +1,94 @@
+{
+    "$schema": "../client_schema.json",
+    "name": "StereoKit",
+    "vendor": "StereoKit",
+    "platforms": [
+        "Windows (Desktop)",
+        "Windows (HoloLens 2)",
+        "Android (All-in-one)",
+        "Linux (Desktop/Embedded)"
+    ],
+    "components": [
+        {
+            "name": "StereoKit Core",
+            "abbreviation": "Core",
+            "extensions": [
+                "XR_KHR_android_create_instance",
+                "XR_KHR_android_thread_settings",
+                "XR_KHR_composition_layer_depth",
+                "XR_KHR_convert_timespec_time",
+                "XR_KHR_D3D11_enable",
+                "XR_KHR_loader_init_android",
+                "XR_KHR_loader_init",
+                "XR_KHR_opengl_enable",
+                "XR_KHR_opengl_es_enable",
+                "XR_KHR_win32_convert_performance_counter_time",
+                "XR_EXT_debug_utils",
+                "XR_EXT_eye_gaze_interaction",
+                "XR_EXT_hand_interaction",
+                "XR_EXT_hand_tracking_data_source",
+                "XR_EXT_hand_tracking",
+                "XR_EXT_hp_mixed_reality_controller",
+                "XR_EXT_interaction_render_model",
+                "XR_EXT_local_floor",
+                "XR_EXT_palm_pose",
+                "XR_EXT_render_model",
+                "XR_EXT_uuid",
+                "XR_EXTX_overlay",
+                "XR_BD_controller_interaction",
+                "XR_FB_color_space",
+                "XR_MNDX_egl_enable",
+                "XR_MSFT_first_person_observer",
+                "XR_MSFT_hand_interaction",
+                "XR_MSFT_hand_tracking_mesh",
+                "XR_MSFT_perception_anchor_interop",
+                "XR_MSFT_scene_understanding",
+                "XR_MSFT_secondary_view_configuration",
+                "XR_MSFT_spatial_anchor_persistence",
+                "XR_MSFT_spatial_anchor",
+                "XR_MSFT_spatial_graph_bridge",
+                "XR_MSFT_unbounded_reference_space",
+                "XR_OCULUS_audio_device_guid"
+            ]
+        },
+        {
+            "name": "StereoKit Tools",
+            "abbreviation": "Tools",
+            "extensions": [
+                "XR_KHR_android_surface_swapchain",
+                "XR_FB_display_refresh_rate",
+                "XR_FB_passthrough"
+            ]
+        },
+        {
+            "name": "StereoKit Holographic Remoting",
+            "abbreviation": "Remoting",
+            "extensions": [
+                "XR_MSFT_holographic_remoting"
+            ]
+        }
+    ],
+    "form_factors": [
+        {
+            "form_factor": "XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY",
+            "view_configurations": [
+                {
+                    "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
+                    "environment_blend_modes": [
+                        "OPAQUE",
+                        "ADDITIVE",
+                        "ALPHA_BLEND"
+                    ]
+                },
+                {
+                    "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_SECONDARY_MONO_FIRST_PERSON_OBSERVER_MSFT",
+                    "environment_blend_modes": [
+                        "OPAQUE",
+                        "ADDITIVE",
+                        "ALPHA_BLEND"
+                    ]
+                }
+            ]
+        }
+    ]
+}
