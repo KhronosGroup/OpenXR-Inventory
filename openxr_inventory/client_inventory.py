@@ -14,21 +14,29 @@ from .inventory_data import ExtensionEntry, EnvironmentBlendModeEntry, ViewConfi
 class ComponentEntry:
     """Data about component of a client"""
 
+    stub: str
+    """A short identifier suitable for use as an HTML anchor, file name stem, etc."""
+
     name: str
     """The name of the component"""
 
     abbreviation: str
     """The abbreviation to use in the client matrix"""
 
+    notes: str
+    """Optional additional information about this component"""
+
     extensions: List[ExtensionEntry]
     """The supported extensions"""
 
     @classmethod
-    def from_json(self, d: Dict) -> "ComponentEntry":
+    def from_json(self, client_stub: str, d: Dict) -> "ComponentEntry":
         exts = [ExtensionEntry.from_json(entry) for entry in d["extensions"]]
         return ComponentEntry(
+            stub=client_stub + '_' + d["abbreviation"],
             name=d["name"],
             abbreviation=d["abbreviation"],
+            notes=d.get("notes"),
             extensions=exts
         )
 
@@ -91,7 +99,7 @@ class ClientData:
 
         'stub' should be the stem of the filename, typically.
         """
-        comps = [ComponentEntry.from_json(entry) for entry in d["components"]]
+        comps = [ComponentEntry.from_json(stub, entry) for entry in d["components"]]
         form_factors = [FormFactorEntry.from_json(entry) for entry in (d.get("form_factors", []))]
         return ClientData(
             stub=stub,

@@ -267,7 +267,11 @@ th.rotate > div {
                 <li>Notes: {{ client.notes }}</li>
                 {% endif %}
                 {% for component in client.components %}
-                <li>Component: {{ component.name }}<br>Extensions:
+                <li id="{{ component.stub  }}">Component: {{ component.name }}<br>
+                    {% if component.notes %}
+                    Notes: {{ component.notes }}<br>
+                    {% endif %}
+                    Extensions:
                     <ul>
                         {% for extension in component.extensions %}
                         <li><a href="#{{extension.name}}">{{extension.name}}</a> {% if extension.notes %} - {{ extension.notes }} {% endif %} </li>
@@ -290,11 +294,15 @@ th.rotate > div {
                     <th></th>
                     {% for client in clients | sort %}
                         {# pragmatic check if the client name fits in the layout or if it needs to be truncated and put the full name in tooltip #}
-                        {% if client.name|length < 34 %}
-                        <th class="rotate" style="border:none"><div><span>{{ client.name }}</span></div></th>
-                        {% else %}
-                        <th class="rotate" style="border:none"><div><span><abbr title="{{client.name}}">{{ client.name|truncate(34, True) }}</abbr></span></div></th>
-                        {% endif %}
+                        <th class="rotate" style="border:none"><div>
+                            {% if client.name|length < 34 %}
+                            <span>{{ client.name }}</span>
+                            {% else %}
+                            </a><span><abbr title="{{client.name}}">{{ client.name|truncate(34, True) }}</abbr></span>
+                            {% endif %}
+                        <a href="#{{ client.stub }}">
+                            <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                        </a></div></th>
                     {% endfor %}
                 </tr>
             </thead>
@@ -313,7 +321,7 @@ th.rotate > div {
                         {% if components|length > 0 %}
                         <td class="text-center bg-success">
                             {% for component in components %}
-                            <span><abbr title="{{component.name}}">{{ component.abbreviation }}</abbr></span>
+                            <span><a href="#{{ component.stub }}"><abbr title="{{component.name}}">{{ component.abbreviation }}</abbr></a></span>
                             {% if not loop.last %}
                             <br>
                             {% endif %}
