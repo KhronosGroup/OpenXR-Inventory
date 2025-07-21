@@ -80,7 +80,8 @@
                 "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_MONO",
                 "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
                 "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_QUAD_VARJO",
-                "XR_VIEW_CONFIGURATION_TYPE_SECONDARY_MONO_FIRST_PERSON_OBSERVER_MSFT"
+                "XR_VIEW_CONFIGURATION_TYPE_SECONDARY_MONO_FIRST_PERSON_OBSERVER_MSFT",
+                "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO_WITH_FOVEATED_INSET"
             ]
         },
         "environment_blend_mode": {
@@ -101,6 +102,10 @@
                 },
                 "abbreviation": {
                     "title": "Abbreviation shown in matrix",
+                    "type": "string"
+                },
+                "notes": {
+                    "title": "Additional information about this component",
                     "type": "string"
                 },
                 "extensions": {

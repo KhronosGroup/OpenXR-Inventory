@@ -2,6 +2,7 @@
     "$schema": "../client_schema.json",
     "name": "Unity",
     "vendor": "Unity Technologies",
+    "notes": "Refer to each package's documentation for more information.",
     "platforms": [
         "Windows (Desktop)",
         "Windows Subsystem for Android (WSA)",
@@ -12,6 +13,7 @@
         {
             "name": "OpenXR Plug-in",
             "abbreviation": "OpenXR Plug-in",
+            "notes": "https://docs.unity3d.com/Packages/com.unity.xr.openxr@latest",
             "extensions": [
                 "XR_KHR_android_create_instance",
                 "XR_KHR_android_surface_swapchain",
@@ -50,12 +52,20 @@
                 "XR_EXT_hand_interaction",
                 "XR_FB_touch_controller_pro",
                 "XR_META_touch_controller_plus",
-                "XR_MSFT_unbounded_reference_space"
+                "XR_MSFT_unbounded_reference_space",
+                "XR_EXT_future",
+                "XR_EXT_spatial_anchor",
+                "XR_EXT_spatial_entity",
+                "XR_EXT_spatial_marker_tracking",
+                "XR_EXT_spatial_persistence",
+                "XR_EXT_spatial_persistence_operations",
+                "XR_EXT_spatial_plane_tracking"
             ]
         },
         {
             "name": "XR Composition Layers",
             "abbreviation": "Comp Layers",
+            "notes": "https://docs.unity3d.com/Packages/com.unity.xr.compositionlayers@latest",
             "extensions": [
                 "XR_KHR_composition_layer_color_scale_bias",
                 "XR_KHR_composition_layer_cube",
@@ -67,6 +77,7 @@
         {
             "name": "Unity OpenXR: Meta",
             "abbreviation": "Meta",
+            "notes": "https://docs.unity3d.com/Packages/com.unity.xr.meta-openxr@latest",
             "extensions": [
                 "XR_FB_display_refresh_rate",
                 "XR_FB_passthrough",
@@ -76,21 +87,30 @@
                 "XR_FB_spatial_entity_container",
                 "XR_FB_spatial_entity_query",
                 "XR_META_colocation_discovery",
+                "XR_META_spatial_entity_discovery",
                 "XR_META_spatial_entity_group_sharing",
                 "XR_META_spatial_entity_mesh",
+                "XR_META_spatial_entity_persistence",
                 "XR_META_spatial_entity_sharing"
             ]
         },
         {
             "name": "Unity OpenXR: Android XR",
             "abbreviation": "Android XR",
+            "notes": "https://docs.unity3d.com/Packages/com.unity.xr.androidxr-openxr@latest",
             "extensions": [
-                "XR_FB_display_refresh_rate"
+                "XR_FB_display_refresh_rate",
+                "XR_ANDROID_device_anchor_persistence",
+                "XR_ANDROID_passthrough_camera_state",
+                "XR_ANDROID_raycast",
+                "XR_ANDROID_trackables",
+                "XR_ANDROID_trackables_object"
             ]
         },
         {
             "name": "XR Hands",
             "abbreviation": "Hands",
+            "notes": "https://docs.unity3d.com/Packages/com.unity.xr.hands@latest",
             "extensions": [
                 "XR_EXT_hand_tracking",
                 "XR_FB_hand_tracking_aim"
