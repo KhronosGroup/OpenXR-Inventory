@@ -1,0 +1,107 @@
+{
+    "$schema": "../client_schema.json",
+    "name": "Unreal Engine",
+    "vendor": "Epic Games",
+    "platforms": [
+        "Windows (Desktop)",
+        "Android (All-in-one)"
+    ],
+    "components": [
+        {
+            "name": "OpenXR",
+            "abbreviation": "OpenXR",
+            "extensions": [
+                "XR_EPIC_view_configuration_fov",
+                "XR_EXT_active_action_set_priority",
+                "XR_EXT_composition_layer_inverted_alpha",
+                "XR_EXT_debug_utils",
+                "XR_EXT_dpad_binding",
+                "XR_EXT_local_floor",
+                "XR_EXT_palm_pose",
+                "XR_FB_composition_layer_alpha_blend",
+                "XR_FB_composition_layer_depth_test",
+                "XR_FB_foveation",
+                "XR_FB_foveation_configuration",
+                "XR_FB_foveation_vulkan",
+                "XR_FB_swapchain_update_state",
+                "XR_KHR_android_create_instance",
+                "XR_KHR_binding_modification",
+                "XR_KHR_composition_layer_color_scale_bias",
+                "XR_KHR_composition_layer_cylinder",
+                "XR_KHR_composition_layer_depth",
+                "XR_KHR_composition_layer_equirect",
+                "XR_KHR_composition_layer_equirect2",
+                "XR_KHR_D3D11_enable",
+                "XR_KHR_D3D12_enable",
+                "XR_KHR_opengl_enable",
+                "XR_KHR_opengl_es_enable",
+                "XR_KHR_visibility_mask",
+                "XR_KHR_vulkan_enable",
+                "XR_KHR_vulkan_swapchain_format_list",
+                "XR_KHR_win32_convert_performance_counter_time",
+                "XR_MND_headless",
+                "XR_OCULUS_audio_device_guid",
+                "XR_VARJO_quad_views"
+            ]
+        },
+        {
+            "name": "OpenXRHandTracking",
+            "abbreviation": "Hand Tracking",
+            "extensions": [
+                "XR_EXT_hand_tracking"
+            ]
+        },
+        {
+            "name": "OpenXREyeTracker",
+            "abbreviation": "Eye Tracking",
+            "extensions": [
+                "XR_EXT_eye_gaze_interaction"
+            ]
+        },
+        {
+            "name": "OpenXRViveTracker",
+            "abbreviation": "Vive Tracker",
+            "extensions": [
+                "XR_HTCX_vive_tracker_interaction"
+            ]
+        },
+        {
+            "name": "HPMotionController",
+            "abbreviation": "HPMotionController",
+            "extensions": [
+                "XR_EXT_hp_mixed_reality_controller"
+            ]
+        }
+    ],
+    "form_factors": [
+        {
+            "form_factor": "XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY",
+            "view_configurations": [
+                {
+                    "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_MONO",
+                    "environment_blend_modes": [
+                        "OPAQUE",
+                        "ADDITIVE",
+                        "ALPHA_BLEND"
+                    ]
+                },
+                {
+                    "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
+                    "environment_blend_modes": [
+                        "OPAQUE",
+                        "ADDITIVE",
+                        "ALPHA_BLEND"
+                    ]
+                },
+                {
+                    "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO_WITH_FOVEATED_INSET",
+                    "environment_blend_modes": [
+                        "OPAQUE",
+                        "ADDITIVE",
+                        "ALPHA_BLEND"
+                    ]
+                }
+            ]
+        }
+    ]
+}
