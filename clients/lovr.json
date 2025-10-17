@@ -1,0 +1,78 @@
+{
+    "$schema": "../client_schema.json",
+    "name": "LÖVR",
+    "vendor": "LÖVR",
+    "platforms": [
+        "Windows (Desktop)",
+        "Linux (Desktop/Embedded)",
+        "Android (All-in-one)"
+    ],
+    "components": [
+        {
+            "name": "LÖVR",
+            "abbreviation": "LÖVR",
+            "notes": "Includes extensions used on development branch.",
+            "extensions": [
+                "XR_KHR_android_create_instance",
+                "XR_KHR_android_thread_settings",
+                "XR_KHR_composition_layer_color_scale_bias",
+                "XR_KHR_composition_layer_cylinder",
+                "XR_KHR_composition_layer_cube",
+                "XR_KHR_composition_layer_depth",
+                "XR_KHR_composition_layer_equirect",
+                "XR_KHR_composition_layer_equirect2",
+                "XR_KHR_convert_timespec_time",
+                "XR_KHR_visibility_mask",
+                "XR_KHR_vulkan_enable2",
+                "XR_KHR_win32_convert_performance_counter_time",
+                "XR_EXT_debug_utils",
+                "XR_EXT_eye_gaze_interaction",
+                "XR_EXT_hand_interaction",
+                "XR_EXT_hand_joints_motion_range",
+                "XR_EXT_hand_tracking",
+                "XR_EXT_hand_tracking_data_source",
+                "XR_EXT_interaction_render_model",
+                "XR_EXT_local_floor",
+                "XR_EXT_palm_pose",
+                "XR_EXT_render_model",
+                "XR_EXT_user_presence",
+                "XR_EXT_uuid",
+                "XR_BD_controller_interaction",
+                "XR_FB_composition_layer_depth_test",
+                "XR_FB_composition_layer_settings",
+                "XR_FB_display_refresh_rate",
+                "XR_FB_foveation",
+                "XR_FB_foveation_configuration",
+                "XR_FB_foveation_vulkan",
+                "XR_FB_hand_tracking_mesh",
+                "XR_FB_keyboard_tracking",
+                "XR_FB_passthrough",
+                "XR_FB_swapchain_update_state",
+                "XR_FB_touch_controller_pro",
+                "XR_LOGITECH_mx_ink_stylus_interaction",
+                "XR_META_automatic_layer_filter",
+                "XR_META_passthrough_preferences",
+                "XR_ML_ml2_controller_interaction",
+                "XR_MND_headless",
+                "XR_ULTRALEAP_hand_tracking_forearm",
+                "XR_EXTX_overlay",
+                "XR_HTCX_vive_tracker_interaction"
+            ]
+        }
+    ],
+    "form_factors": [
+        {
+            "form_factor": "XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY",
+            "view_configurations": [
+                {
+                    "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
+                    "environment_blend_modes": [
+                        "OPAQUE",
+                        "ADDITIVE",
+                        "ALPHA_BLEND"
+                    ]
+                }
+            ]
+        }
+    ]
+}
