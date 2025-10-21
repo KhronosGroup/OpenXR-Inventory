@@ -5,8 +5,7 @@ Copyright 2022, The Khronos Group Inc.
 SPDX-License-Identifier: CC-BY-4.0
 -->
 
-Publicly-maintained data about what runtimes (and ideally layers) provide what
-extensions, etc.
+Publicly-maintained data about what runtimes, middleware components or engines (such as Godot, Unity, Unreal, and StereoKit) provide which OpenXR extensions. Together, the Runtime and Client Support Matrices offer a clear overview of extension support across both runtime implementations and client integrations in the OpenXR ecosystem.
 
 View the output online:
 
