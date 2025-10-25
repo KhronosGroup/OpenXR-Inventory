@@ -1,6 +1,6 @@
 {
     "$schema": "../client_schema.json",
-    "name": "Godot Game Engine",
+    "name": "Godot Engine",
     "vendor": "Godot Community",
     "notes": "Some extensions require the use of the Godot OpenXR Vendors Plugin.",
     "platforms": [
