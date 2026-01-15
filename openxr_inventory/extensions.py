@@ -249,6 +249,78 @@ def generate_report(
             fp.write(contents)
 
 
+def generate_runtime_report(
+    runtimes: List[RuntimeData],
+    clients: List[ClientData],
+    template_filename: str = "runtime_extension_support.jinja2.html",
+    out_filename: str = "public/runtime_extension_support.html",
+):
+    """
+    Write an HTML file containing information about runtime extension support.
+    """
+    from .inventory_jinja import make_jinja_environment
+
+    env = make_jinja_environment()
+    env.globals["cat"] = ExtensionCategory
+    env.globals["cat_captions"] = _category_captions
+    env.globals["categorize_ext"] = categorize_ext_name
+    template = env.get_template(template_filename)
+    spec_url = "https://www.khronos.org/registry/OpenXR/specs/1.1/html/xrspec.html"
+    contents = template.render(
+        extensions=compute_known_extensions(runtimes, clients),
+        extension_support=compute_extension_support(runtimes, clients),
+        runtime_support=compute_runtime_support(runtimes),
+        client_support=compute_client_support(clients),
+        known_form_factors=compute_known_form_factors(runtimes, clients),
+        form_factor_support=compute_form_factor_support(runtimes, clients),
+        runtimes=runtimes,
+        clients=clients,
+        spec_url=spec_url,
+    )
+
+    if contents:
+        out_file = Path(__file__).parent.parent / out_filename
+        print("Writing {}".format(out_file))
+        with open(out_file, "w", encoding="utf-8") as fp:
+            fp.write(contents)
+
+
+def generate_client_report(
+    runtimes: List[RuntimeData],
+    clients: List[ClientData],
+    template_filename: str = "client_extension_support.jinja2.html",
+    out_filename: str = "public/client_extension_support.html",
+):
+    """
+    Write an HTML file containing information about client extension support.
+    """
+    from .inventory_jinja import make_jinja_environment
+
+    env = make_jinja_environment()
+    env.globals["cat"] = ExtensionCategory
+    env.globals["cat_captions"] = _category_captions
+    env.globals["categorize_ext"] = categorize_ext_name
+    template = env.get_template(template_filename)
+    spec_url = "https://www.khronos.org/registry/OpenXR/specs/1.1/html/xrspec.html"
+    contents = template.render(
+        extensions=compute_known_extensions(runtimes, clients),
+        extension_support=compute_extension_support(runtimes, clients),
+        runtime_support=compute_runtime_support(runtimes),
+        client_support=compute_client_support(clients),
+        known_form_factors=compute_known_form_factors(runtimes, clients),
+        form_factor_support=compute_form_factor_support(runtimes, clients),
+        runtimes=runtimes,
+        clients=clients,
+        spec_url=spec_url,
+    )
+
+    if contents:
+        out_file = Path(__file__).parent.parent / out_filename
+        print("Writing {}".format(out_file))
+        with open(out_file, "w", encoding="utf-8") as fp:
+            fp.write(contents)
+
+
 if __name__ == "__main__":
     from .runtime_inventory import load_all_runtimes
     from .client_inventory import load_all_clients
@@ -256,3 +328,5 @@ if __name__ == "__main__":
     runtimes = load_all_runtimes()
     clients = load_all_clients()
     generate_report(runtimes, clients)
+    generate_runtime_report(runtimes, clients)
+    generate_client_report(runtimes, clients)
