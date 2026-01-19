@@ -19,8 +19,10 @@ verify_and_build:
     - python3 -m pip install -r requirements.txt
   script:
     - ./verify_schema.sh
-    - ./extension_support_report.py
+    - make
   artifacts:
     paths:
       - public/extension_support.html
-    expose_as: "Extension Support Report"
+      - public/runtime_extension_support.html
+      - public/client_extension_support.html
+    expose_as: "Extension Support Reports"
