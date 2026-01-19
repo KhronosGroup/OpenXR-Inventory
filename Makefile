@@ -3,7 +3,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-HTML_REPORT_FILES := public/runtime_extension_support.html public/client_extension_support.html
+HTML_REPORT_FILES := public/runtime_extension_support.html public/client_extension_support.html public/extension_support.html
 SHARED_DEPS := $(wildcard openxr_inventory/*.py) \
                $(wildcard runtimes/*.json) \
                $(wildcard clients/*.json) \
@@ -23,3 +23,6 @@ public/runtime_extension_support.html: extension_support_report.py public $(SHAR
 
 public/client_extension_support.html: extension_support_report.py public $(SHARED_DEPS)
 	python3 $<
+
+public/extension_support.html: openxr_inventory/templates/extension_support.html public
+	cp $< $@
