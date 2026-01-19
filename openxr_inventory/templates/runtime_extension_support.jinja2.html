@@ -14,9 +14,9 @@ SPDX-License-Identifier: CC-BY-4.0
 {%- endblock navbar_brand_text %}
 
 {% block navbar_list_items %}
+    <li><a href="#runtime_matrix">Runtime Support Matrix</a></li>
     <li><a href="#extensions">Extensions</a></li>
     <li><a href="#runtimes">Runtimes</a></li>
-    <li><a href="#runtime_matrix">Runtime Support Matrix</a></li>
 {% endblock navbar_list_items %}
 
 {% block style %}
@@ -44,84 +44,6 @@ th.rotate > div {
 {% endblock style %}
 
 {% block container_contents %}
-    <section id="extensions">
-
-        <!-- extension toc -->
-        <div class="jumbotron row">
-            <h2 id="extensions">Extensions</h2>
-            {% for col in extensions | slice(3) %}
-            <div class="col-md-4">
-                <ul class="list-unstyled">
-                    {% for extension_name in col %}
-                    <li><a href="#{{ extension_name }}">{{ extension_name }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endfor %}
-        </div>
-
-        {% for extension_name in extensions %}
-        {% set support = extension_support[extension_name] %}
-
-        <div class="row" id="{{ extension_name }}">
-            <h3>{{ extension_name }} ({{ support.runtime_count }} runtime{{ "s" if support.runtime_count != 1 }})</h3>
-            <p>
-                <a href="{{spec_url}}#{{extension_name}}">Specification
-                    for {{ extension_name }}</a>
-            </p>
-            Runtimes:<br>
-            <ul>
-                {% for runtime in runtimes | sort %}
-                {% if extension_name in runtime_support[runtime.name] %}
-                <li><a href="#{{ runtime.stub }}">{{ runtime.vendor }} - {{ runtime.name }}</a></li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-        {% endfor %}
-    </section>
-
-    <section>
-        <!-- runtime toc -->
-        <div id="runtimes" class="jumbotron row">
-            <h2>Runtimes</h2>
-
-            <ul class="list-unstyled">
-                {% for runtime in runtimes | sort %}
-                <li><a href="#{{ runtime.stub }}">{{ runtime.vendor }} - {{ runtime.name }}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
-
-        {% for runtime in runtimes %}
-        <div class="row" id="{{ runtime.stub }}">
-            <h3>{{ runtime.name }}</h3>
-            <ul>
-                <li>Vendor: {{ runtime.vendor }}</li>
-                {% if runtime.conformance_submission %}
-                <li>Most recent conformance submission: <a href="{{runtime.conformance_submission_url}}">#{{runtime.conformance_submission}}</a></li>
-                {% endif %}
-                {% if not runtime.conformance_submission %}
-                <li><strong>Not a conformant runtime</strong></li>
-                {% endif %}
-                {% if runtime.conformance_notes %}
-                <li>Conformance notes: {{ runtime.conformance_notes }}</li>
-                {% endif %}
-                {% if runtime.devices_notes %}
-                <li>Device support: {{ runtime.devices_notes }}</li>
-                {% endif %}
-                <li>Supported extensions:
-                    <ul>
-                        {% for extension in runtime.extensions %}
-                        <li><a href="#{{extension.name}}">{{extension.name}}</a> {% if extension.notes %} - {{ extension.notes }} {% endif %} </li>
-                        {% endfor %}
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        {% endfor %}
-    </section>
-
     <section>
         <div id="runtime_matrix" class="jumbotron row">
             <h2>Runtime support matrix</h2>
@@ -232,5 +154,83 @@ th.rotate > div {
 
             </tbody>
         </table>
+    </section>
+
+    <section id="extensions">
+
+        <!-- extension toc -->
+        <div class="jumbotron row">
+            <h2 id="extensions">Extensions</h2>
+            {% for col in extensions | slice(3) %}
+            <div class="col-md-4">
+                <ul class="list-unstyled">
+                    {% for extension_name in col %}
+                    <li><a href="#{{ extension_name }}">{{ extension_name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% for extension_name in extensions %}
+        {% set support = extension_support[extension_name] %}
+
+        <div class="row" id="{{ extension_name }}">
+            <h3>{{ extension_name }} ({{ support.runtime_count }} runtime{{ "s" if support.runtime_count != 1 }})</h3>
+            <p>
+                <a href="{{spec_url}}#{{extension_name}}">Specification
+                    for {{ extension_name }}</a>
+            </p>
+            Runtimes:<br>
+            <ul>
+                {% for runtime in runtimes | sort %}
+                {% if extension_name in runtime_support[runtime.name] %}
+                <li><a href="#{{ runtime.stub }}">{{ runtime.vendor }} - {{ runtime.name }}</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </section>
+
+    <section>
+        <!-- runtime toc -->
+        <div id="runtimes" class="jumbotron row">
+            <h2>Runtimes</h2>
+
+            <ul class="list-unstyled">
+                {% for runtime in runtimes | sort %}
+                <li><a href="#{{ runtime.stub }}">{{ runtime.vendor }} - {{ runtime.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        {% for runtime in runtimes %}
+        <div class="row" id="{{ runtime.stub }}">
+            <h3>{{ runtime.name }}</h3>
+            <ul>
+                <li>Vendor: {{ runtime.vendor }}</li>
+                {% if runtime.conformance_submission %}
+                <li>Most recent conformance submission: <a href="{{runtime.conformance_submission_url}}">#{{runtime.conformance_submission}}</a></li>
+                {% endif %}
+                {% if not runtime.conformance_submission %}
+                <li><strong>Not a conformant runtime</strong></li>
+                {% endif %}
+                {% if runtime.conformance_notes %}
+                <li>Conformance notes: {{ runtime.conformance_notes }}</li>
+                {% endif %}
+                {% if runtime.devices_notes %}
+                <li>Device support: {{ runtime.devices_notes }}</li>
+                {% endif %}
+                <li>Supported extensions:
+                    <ul>
+                        {% for extension in runtime.extensions %}
+                        <li><a href="#{{extension.name}}">{{extension.name}}</a> {% if extension.notes %} - {{ extension.notes }} {% endif %} </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        {% endfor %}
     </section>
 {% endblock container_contents %}
