@@ -6,17 +6,17 @@ SPDX-License-Identifier: CC-BY-4.0
 
 {% extends "base.jinja2.html" %}
 {% block title -%}
-    OpenXR Client Extension Support Report
+    OpenXR Middleware Extension Support Report
 {%- endblock title %}
 
 {% block navbar_brand_text -%}
-    OpenXR Client Extension Support Report
+    OpenXR Middleware Extension Support Report
 {%- endblock navbar_brand_text %}
 
 {% block navbar_list_items %}
-    <li><a href="#client_matrix">Client Support Matrix</a></li>
+    <li><a href="#client_matrix">Middleware Support Matrix</a></li>
     <li><a href="#extensions">Extensions</a></li>
-    <li><a href="#clients">Clients</a></li>
+    <li><a href="#clients">Middleware Components</a></li>
 {% endblock navbar_list_items %}
 
 {% block style %}
@@ -46,14 +46,14 @@ th.rotate > div {
 {% block container_contents %}
     <section>
         <div id="client_matrix" class="jumbotron row">
-            <h2>Client support matrix</h2>
+            <h2>Middleware support matrix</h2>
         </div>
         <table class="table table-hover table-condensed table-sticky-col-headers">
             <thead>
                 <tr>
                     <th></th>
                     {% for client in clients | sort %}
-                        {# pragmatic check if the client name fits in the layout or if it needs to be truncated and put the full name in tooltip #}
+                        {# pragmatic check if the middleware name fits in the layout or if it needs to be truncated and put the full name in tooltip #}
                         <th class="rotate" style="border:none"><div>
                             {% if client.name|length < 34 %}
                             <span>{{ client.name }}</span>
@@ -111,7 +111,7 @@ th.rotate > div {
                 {% endfor %}
 
                 <tr class="active">
-                    <th style="text-align:center" colspan="{{ clients|length + 1 }}">Client Features</th>
+                    <th style="text-align:center" colspan="{{ clients|length + 1 }}">Middleware Features</th>
                 </tr>
 
                 {% for ff, view_configurations in known_form_factors.items() %}
@@ -194,7 +194,7 @@ th.rotate > div {
                     for {{ extension_name }}</a>
             </p>
             {% if support.client_count > 0 %}
-            Clients:<br>
+            Middleware Components:<br>
             <ul>
                 {% for client in clients | sort %}
                 {% if extension_name in client_support[client.name] %}
@@ -212,7 +212,7 @@ th.rotate > div {
     <section>
         <!-- client toc -->
         <div id="clients" class="jumbotron row">
-            <h2>Clients</h2>
+            <h2>Middleware Components</h2>
 
             <ul class="list-unstyled">
                 {% for client in clients | sort %}
