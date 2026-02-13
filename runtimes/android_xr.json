@@ -1,6 +1,6 @@
 {
     "$schema": "../runtime_schema.json",
-    "name": "Android XR",
+    "name": "Android XR - Galaxy XR",
     "conformance_submission": 43,
     "platform": "Android (All-in-one)",
     "vendor": "Google LLC",
@@ -77,7 +77,7 @@
                     "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
                     "environment_blend_modes": [
                         "OPAQUE",
-                        "ADDITIVE"
+                        "ALPHA_BLEND"
                     ]
                 }
             ]
