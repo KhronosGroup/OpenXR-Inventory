@@ -1,0 +1,68 @@
+{
+    "$schema": "../runtime_schema.json",
+    "name": "Snapdragon Spaces (AR)",
+    "platform": "Android (Phone/Installable)",
+    "vendor": "Qualcomm",
+    "extensions": [
+        "XR_KHR_android_create_instance",
+        "XR_KHR_android_surface_swapchain",
+        "XR_KHR_android_thread_settings",
+        "XR_KHR_binding_modification",
+        "XR_KHR_composition_layer_color_scale_bias",
+        "XR_KHR_composition_layer_cube",
+        "XR_KHR_composition_layer_cylinder",
+        "XR_KHR_composition_layer_depth",
+        "XR_KHR_composition_layer_equirect",
+        "XR_KHR_composition_layer_equirect2",
+        "XR_KHR_convert_timespec_time",
+        "XR_KHR_loader_init",
+        "XR_KHR_loader_init_android",
+        "XR_KHR_opengl_es_enable",
+        "XR_KHR_swapchain_usage_input_attachment_bit",
+        "XR_KHR_vulkan_enable",
+        "XR_KHR_vulkan_enable2",
+        "XR_EXT_dpad_binding",
+        "XR_EXT_debug_utils",
+        "XR_EXT_eye_gaze_interaction",
+        "XR_EXT_hand_interaction",
+        "XR_EXT_hand_tracking",
+        "XR_EXT_hp_mixed_reality_controller",
+        "XR_EXT_palm_pose",
+        "XR_EXT_performance_settings",
+        "XR_EXT_samsung_odyssey_controller",
+        "XR_EXTX_overlay",
+        "XR_FB_composition_layer_alpha_blend",
+        "XR_FB_composition_layer_image_layout",
+        "XR_FB_composition_layer_settings",
+        "XR_FB_display_refresh_rate",
+        "XR_FB_foveation",
+        "XR_FB_foveation_configuration",
+        "XR_FB_foveation_vulkan",
+        "XR_FB_space_warp",
+        "XR_FB_swapchain_update_state",
+        "XR_ML_ml2_controller_interaction",
+        "XR_MND_headless",
+        "XR_MND_swapchain_usage_input_attachment_bit",
+        "XR_MNDX_force_feedback_curl",
+        "XR_MSFT_hand_interaction",
+        "XR_MSFT_hand_tracking_mesh",
+        "XR_MSFT_scene_understanding",
+        "XR_MSFT_spatial_anchor",
+        "XR_MSFT_spatial_anchor_persistence",
+        "XR_MSFT_unbounded_reference_space",
+        "XR_QCOM_tracking_optimization_settings"
+    ],
+    "form_factors": [
+        {
+            "form_factor": "XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY",
+            "view_configurations": [
+                {
+                    "view_configuration": "XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO",
+                    "environment_blend_modes": [
+                        "ADDITIVE"
+                    ]
+                }
+            ]
+        }
+    ]
+}
