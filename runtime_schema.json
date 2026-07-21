@@ -61,7 +61,8 @@
                 "Windows (HoloLens 2)",
                 "Linux (Desktop/Embedded)",
                 "Android (All-in-one)",
-                "Android (Phone/Installable)"
+                "Android (Phone/Installable)",
+                "MacOS (Desktop)"
             ]
         },
         "form_factor": {
