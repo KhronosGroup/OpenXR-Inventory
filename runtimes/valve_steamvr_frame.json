@@ -1,9 +1,9 @@
 {
     "notes": "Generated using list_json: 'SteamVR/OpenXR' (2.19.0)",
     "$schema": "../runtime_schema.json",
-    "name": "SteamVR/OpenXR : cv",
+    "name": "SteamVR (Steam Frame)",
     "conformance_submission": 0,
-    "platform": "Linux (Desktop)",
+    "platform": "Linux",
     "vendor": "Valve Corporation",
     "extensions": [
         "XR_KHR_binding_modification",
