@@ -5,6 +5,13 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # Contributing
 
+## Contributor License Agreement
+
+When you propose a pull request on this repository you must execute a Khronos
+[Open Source Contributor License Agreement
+(CLA)](https://www.khronos.org/cla/KhronosGroup/OpenXR-Inventory), to confirm
+you own your work and are granting Khronos the necessary permissions to
+redistribute it under our licenses.
 
 ## AI-Assisted Contributions
 
