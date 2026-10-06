@@ -2,7 +2,7 @@
     "notes": "Generated using list_json: 'SteamVR/OpenXR' (2.19.0)",
     "$schema": "../runtime_schema.json",
     "name": "SteamVR (Windows)",
-    "conformance_submission": 0,
+    "conformance_submission": 11,
     "platform": "Windows (Desktop)",
     "vendor": "Valve Corporation",
     "extensions": [
